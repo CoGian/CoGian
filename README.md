@@ -1,16 +1,6 @@
-  
-# Binaries for programs and plugins
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
-
-# Test binary, built with `go test -c`
-*.test
-
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
-
-# Dependency directories (remove the comment below to include it)
-# vendor/
+<a href="https://lon9.github.io">
+<img align="left" src="https://github-readme-stats.vercel.app/api?username=x0rzkov&count_private=true&show_icons=true&theme=dark" />
+</a>
+<a href="https://lon9.github.io">
+<img align="left" src="https://github-readme-stats.vercel.app/api/top-langs/?username=x0rzkov&theme=dark&hide=html" />
+</a>
