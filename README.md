@@ -1,16 +1,16 @@
-### Hi there 👋
+  
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
 
-<!--
-**CoGian/CoGian** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# Test binary, built with `go test -c`
+*.test
 
-Here are some ideas to get you started:
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+# Dependency directories (remove the comment below to include it)
+# vendor/
