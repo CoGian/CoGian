@@ -1,6 +1,6 @@
 <a>
-<img align="left" src="https://github-readme-stats.vercel.app/api?username=CoGian&count_private=true&show_icons=true&theme=dark" />
+<img align="left" src="https://github-readme-stats.vercel.app/api?username=CoGian&count_private=true&show_icons=true&theme=gotham" />
 </a>
 <a>
-<img align="left" src="https://github-readme-stats.vercel.app/api/top-langs/?username=CoGian&show_icons=true&theme=dark&hide=html" />
+<img align="left" src="https://github-readme-stats.vercel.app/api/top-langs/?username=CoGian&layout=compact&theme=gotham&hide=html" />
 </a>
