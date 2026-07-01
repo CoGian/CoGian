@@ -1,4 +1,4 @@
-﻿name: Deploy Mininio Pages
+name: Deploy Mininio Pages
 
 on:
   repository_dispatch:
@@ -34,10 +34,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add mininio/
+          git add -f mininio/
           if git diff --staged --quiet; then
             echo "No changes to deploy"
           else
             git commit -m "Deploy Mininio pages [skip ci]"
             git push origin main
           fi
+
