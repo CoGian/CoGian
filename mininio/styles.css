@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    Mininio Carb Tracker - GitHub Pages
    ============================================================ */
 
@@ -172,6 +172,14 @@ img { max-width: 100%; height: auto; display: block; }
     position: relative; overflow: hidden;
     padding: 7rem 1.5rem 5rem; text-align: center;
     background: var(--grad-hero);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .hero::before {
@@ -243,14 +251,17 @@ img { max-width: 100%; height: auto; display: block; }
 .glass-card {
     background: var(--grad-card); border-radius: var(--radius-lg);
     border: 1.5px solid var(--border-subtle);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     box-shadow: var(--shadow-md);
     padding: 2rem;
-    transition: transform .32s var(--ease-spring), box-shadow .32s ease;
+    transition: transform .4s var(--ease-spring), box-shadow .4s ease, border-color .4s ease;
 }
 
 .glass-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    border-color: var(--border-branded);
 }
 
 /* ---- Features Grid ---- */
@@ -264,11 +275,17 @@ img { max-width: 100%; height: auto; display: block; }
     background: var(--grad-card);
     border-radius: var(--radius-lg);
     border: 1.5px solid var(--border-subtle);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     padding: 2rem;
-    transition: transform .32s var(--ease-spring), box-shadow .32s ease;
+    transition: transform .4s var(--ease-spring), box-shadow .4s ease, border-color .4s ease;
 }
 
-.feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.feature-card:hover { 
+    transform: translateY(-6px) scale(1.02); 
+    box-shadow: var(--shadow-lg), var(--shadow-glow); 
+    border-color: var(--border-branded);
+}
 
 .feature-icon {
     width: 52px; height: 52px; border-radius: 14px;
@@ -301,10 +318,14 @@ img { max-width: 100%; height: auto; display: block; }
     border: 1.5px solid var(--border-subtle);
     box-shadow: var(--shadow-md);
     background: var(--surface);
-    transition: transform .32s var(--ease-spring);
+    transition: transform .4s var(--ease-spring), box-shadow .4s ease, border-color .4s ease;
 }
 
-.screenshot-frame:hover { transform: scale(1.03); box-shadow: var(--shadow-lg); }
+.screenshot-frame:hover { 
+    transform: scale(1.05) translateY(-4px); 
+    box-shadow: var(--shadow-lg), var(--shadow-glow); 
+    border-color: var(--border-branded);
+}
 
 .screenshot-frame img { width: 100%; height: auto; display: block; }
 
