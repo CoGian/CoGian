@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
     <link rel="stylesheet" href="../../css/styles.css">
     <style>
         .page-hero {
@@ -228,13 +229,35 @@
 
     <nav class="nav" id="nav">
         <div class="nav-inner">
-            <a href="../../index.html" class="nav-logo" title="Back to Portfolio">KG</a>
+            <a href="../../index.html" class="nav-logo">
+                <img src="../../assets/logo.svg" alt="Turtle Terminal Logo">
+            </a>
             <div class="nav-links" id="navLinks">
-                <a href="#overview" class="nav-link">Overview</a>
-                <a href="#methodology" class="nav-link">Methodology</a>
-                <a href="#bias" class="nav-link">Bias Mitigation</a>
-                <a href="#results" class="nav-link">Results</a>
-                <a href="#stack" class="nav-link">Tech Stack</a>
+                <a href="../../index.html#about" class="nav-link">About</a>
+                <a href="../../index.html#experience" class="nav-link">Experience</a>
+                <div class="nav-dropdown">
+                    <a href="../../index.html#projects" class="nav-link">Projects</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="https://github.com/CoGian/Interpretable-Multi-Label-Learning" class="nav-dropdown-item" target="_blank" rel="noopener">
+                            <span class="nav-dropdown-icon" style="background:rgba(129,140,248,0.12);">&#127942;</span>
+                            Interpretable Multi-Label Learning
+                        </a>
+                        <a href="../../projects/toxic-comment-detection/" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon" style="background:rgba(56,189,248,0.12);">&#9889;</span>
+                            Toxic Comment Detection
+                        </a>
+                        <a href="https://github.com/CoGian/keyword-extraction-with-greekBERT" class="nav-dropdown-item" target="_blank" rel="noopener">
+                            <span class="nav-dropdown-icon" style="background:rgba(244,114,182,0.12);">&#128640;</span>
+                            GreekBERT Keyword Extraction
+                        </a>
+                        <a href="../../mininio/" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon" style="background:rgba(52,211,153,0.12);">&#128241;</span>
+                            Mininio Carb Tracker
+                        </a>
+                    </div>
+                </div>
+                <a href="../../index.html#skills" class="nav-link">Skills</a>
+                <a href="../../index.html#cv" class="nav-link">CV</a>
             </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span><span></span><span></span>
