@@ -490,7 +490,7 @@ p { color: var(--text-secondary); font-size: 1.05rem; }
     box-shadow: var(--shadow-sm);
 }
 
-.cv-card svg { color: var(--text-muted); margin-bottom: 1rem; }
+.cv-card > svg { color: var(--text-muted); margin-bottom: 1rem; }
 .cv-card p { margin-bottom: 1.5rem; }
 
 .btn {
@@ -505,7 +505,7 @@ p { color: var(--text-secondary); font-size: 1.05rem; }
 }
 
 .btn svg {
-    margin-bottom: 2px;
+    /* alignment fix if needed */
 }
 
 .btn:hover { transform: scale(1.03); }
