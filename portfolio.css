@@ -324,6 +324,11 @@ p { color: var(--text-secondary); font-size: 1.05rem; }
 
 .timeline-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.35rem; }
 
+.org-logo {
+    width: 24px; height: 24px; border-radius: 4px;
+    object-fit: contain; flex-shrink: 0;
+}
+
 .timeline-header h3 { font-size: 1.15rem; color: var(--text); }
 
 .timeline-meta { font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono); }
@@ -368,7 +373,10 @@ p { color: var(--text-secondary); font-size: 1.05rem; }
 
 .edu-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg), var(--shadow-glow); }
 
-.edu-icon { font-size: 2rem; margin-bottom: 1rem; }
+.edu-logo {
+    width: 48px; height: 48px; border-radius: 6px;
+    margin-bottom: 1rem; object-fit: contain;
+}
 
 .edu-card h3 { margin-bottom: 0.35rem; }
 
