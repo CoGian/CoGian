@@ -1,0 +1,566 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mininio Carb Tracker — A private, offline carbohydrate counting calculator for diabetes management with custom insulin ratio math and a database of 1,070 foods across 10 languages.">
+    <meta name="author" content="Konstantinos Giantsios">
+    <meta name="theme-color" content="#1B475D">
+    <meta property="og:title" content="Mininio Carb Tracker">
+    <meta property="og:description" content="Private carb calculator & insulin ratio math. 100% offline, your data only.">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:type" content="website">
+
+    <title>Mininio Carb Tracker — Private Carb Calculator</title>
+
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <div class="nav-brand">
+                <img src="images/logo.png" alt="Mininio Logo" class="nav-logo" width="36" height="36">
+                <span class="nav-title">Mininio Carb Tracker</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#screenshots" class="nav-link">Screenshots</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#changelog" class="nav-link">Changelog</a>
+                <a href="#privacy" class="nav-link">Privacy</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <svg width="22" height="18" viewBox="0 0 22 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <line x1="1" y1="1" x2="21" y2="1"/>
+                    <line x1="1" y1="9" x2="21" y2="9"/>
+                    <line x1="1" y1="17" x2="21" y2="17"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <img src="images/logo.png" alt="Mininio Carb Tracker" class="hero-logo" width="120" height="120">
+        <h1>Mininio Carb Tracker</h1>
+        <p class="tagline">The private, offline carb calculator with custom insulin ratio math. Your data, your device, your numbers.</p>
+        <div class="hero-badges">
+            <span class="badge badge-version">v0.15.6</span>
+            <span class="badge badge-platform">Android</span>
+            <span class="badge badge-platform">10 Languages</span>
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener" class="badge badge-platform" style="background:rgba(247,224,138,0.15);border-color:rgba(247,224,138,0.25);color:var(--naples-yellow);">CC BY-NC-SA 4.0</a>
+        </div>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+            <a href="#features" class="btn btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Explore Features
+            </a>
+            <a href="https://github.com/CoGian/mininio_carb_tracker" class="btn btn-outline" target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                View on GitHub
+            </a>
+        </div>
+        <img src="images/mininio_feature.png" alt="Mininio Carb Tracker Screenshot" class="hero-feature" loading="lazy">
+    </header>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Everything you need, nothing you don't</h2>
+                <p>Mininio combines instant carb calculations, custom insulin ratio math, and a ten-language food database — all running entirely on your device, with no accounts and no cloud.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon" style="background:rgba(142,189,157,0.15);color:var(--neptune-dark);">&#9879;</div>
+                    <h3>Instant Carb Calculator</h3>
+                    <p>Select from 1,070 foods across 10 languages, enter your portion size, and watch the carbohydrate count update as you type.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon" style="background:rgba(27,71,93,0.10);color:var(--rhino-teal);">&#247;</div>
+                    <h3>Custom Insulin Ratio Math</h3>
+                    <p>Enter your own insulin-to-carb ratios for Morning, Midday, and Evening. The app performs the division — nothing more, nothing less.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon" style="background:rgba(247,224,138,0.20);color:#8B7320;">&#9881;</div>
+                    <h3>Glucose Correction Arithmetic</h3>
+                    <p>Optionally apply your personal glucose correction formula using your own threshold, baseline, and divisor values.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon" style="background:rgba(142,189,157,0.12);color:var(--neptune-dark);">&#9733;</div>
+                    <h3>Days Tracked Motivation</h3>
+                    <p>30 unique milestone tiers celebrate your consistency, from Day 1 to 2000+. Tap for an interactive emoji rain reward.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon" style="background:rgba(27,71,93,0.08);color:var(--rhino-teal);">&#128200;</div>
+                    <h3>Interactive Statistics Dashboard</h3>
+                    <p>Explore 5 premium charts with pinch-to-zoom, drag-to-pan, and time range filters for deep insight into your trends.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon" style="background:rgba(247,224,138,0.15);color:#8B7320;">&#128274;</div>
+                    <h3>100% Offline &amp; Private</h3>
+                    <p>No servers, no cloud sync, no analytics, no network calls. Your eating history never leaves your device. Period.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+    <!-- Screenshots Section -->
+    <section class="section" id="screenshots">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>See it in action</h2>
+                <p>A look inside the app's premium "Rhino & Naples" design system with its four-tab layout.</p>
+            </div>
+            <div class="screenshots-scroll">
+                <div class="screenshot-frame fade-in">
+                    <img src="images/Screenshot_20260621_191307.png" alt="Home Screen Dashboard" loading="lazy">
+                </div>
+                <div class="screenshot-frame fade-in">
+                    <img src="images/Screenshot_20260621_191427.png" alt="Carb Calculator" loading="lazy">
+                </div>
+                <div class="screenshot-frame fade-in">
+                    <img src="images/Screenshot_20260621_191646.png" alt="Calculation Screen" loading="lazy">
+                </div>
+                <div class="screenshot-frame fade-in">
+                    <img src="images/Screenshot_20260621_191707.png" alt="History Calendar" loading="lazy">
+                </div>
+                <div class="screenshot-frame fade-in">
+                    <img src="images/Screenshot_20260621_191843.png" alt="Nutrition Table" loading="lazy">
+                </div>
+                <div class="screenshot-frame fade-in">
+                    <img src="images/Screenshot_20260621_191932.png" alt="Settings Screen" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- How It Works Section -->
+    <section class="section" id="how-it-works">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>How the math works — transparently</h2>
+                <p>Mininio is a calculator, not a medical device. Here's exactly what it does and doesn't do.</p>
+            </div>
+            <div class="how-works-grid">
+                <div class="how-card fade-in">
+                    <h3 style="color:var(--neptune-dark);">&#10003; What it does</h3>
+                    <ul>
+                        <li>Takes the total grams of carbohydrate you logged and divides by your user-entered ratio (e.g., 100g &divide; ratio of 15 = 6.67 units)</li>
+                        <li>Performs standard glucose-correction arithmetic using your own threshold, baseline, and divisor values</li>
+                        <li>Saves your calculation history locally for you to review, copy, and track over time</li>
+                        <li>Provides interactive charts to visualize your trends — frequency, top foods, carbs, glucose, and bolus results</li>
+                    </ul>
+                </div>
+                <div class="how-card fade-in">
+                    <h3 style="color:var(--error);">&#10007; What it does NOT do</h3>
+                    <ul>
+                        <li>Never suggests, recommends, or adjusts your insulin ratios</li>
+                        <li>Never calculates a dose based on internal logic or medical guidelines</li>
+                        <li>Never claims to replace professional medical judgement</li>
+                        <li>Never transmits your data to any server — there is no backend, no cloud, no analytics</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="text-align:center;margin-top:2rem;font-size:0.9rem;color:var(--text-muted);">
+                <strong>Disclaimer:</strong> Mininio Carb Tracker is a general wellness tool and mathematical calculator, NOT a medical device. Always consult your healthcare provider before adjusting your medication or diet.
+            </p>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- Changelog Section -->
+    <section class="section" id="changelog">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Changelog</h2>
+                <p>Automatically updated on every release. <a href="https://github.com/CoGian/mininio_carb_tracker/releases" target="_blank" rel="noopener">Full release history on GitHub</a></p>
+            </div>
+            <div class="changelog" id="changelogContainer">
+                <div class="changelog-entry">
+<div class="changelog-version"><h3>v0.15.6</h3><span class="changelog-date">16 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Refactor: Renamed package to `com.kgiantsios.mininiocarbtracker` and app name to &quot;Mininio Carb Tracker&quot;.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.15.5</h3><span class="changelog-date">16 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Refactor: Renamed &quot;streak&quot; system to &quot;days tracked&quot; — now counts all unique days ever logged instead of consecutive days with a strict reset, making the system more forgiving for users who miss a day.</li>
+<li>UI: Replaced milestone emojis with background rendering issues (360🎆→🥇, 540🎇→♾️, 1260⚛️→☄️) for cleaner display on all Android versions.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.15.4</h3><span class="changelog-date">16 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Fixed: Charts on the Home screen no longer block vertical scrolling. Replaced `detectTransformGestures` with a custom direction-aware gesture handler (`detectChartGestures`) that distinguishes vertical drags (scroll) from horizontal drags (pan) and pinches (zoom).</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.15.3</h3><span class="changelog-date">08 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>UI: Medical disclaimer banner now uses an accordion-style design — defaults to expanded, tappable to collapse/expand with smooth chevron rotation animation.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.15.2</h3><span class="changelog-date">08 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Bug Fix: Loading a different language nutrition table from the import dialog now correctly replaces existing data (previously silently skipped when data existed).</li>
+<li>Bug Fix: Import confirm dialog now closes before showing seed errors, preventing overlapping dialogs.</li>
+<li>Bug Fix: Seed/DB errors no longer incorrectly display CSV formatting instructions.</li>
+<li>Refactor: Extracted shared `LanguagePickerSection` composable, eliminating duplication between SetupWizard and NutritionTableScreen.</li>
+<li>UI: Added medical disclaimer banner to the import confirm dialog.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.15.1</h3><span class="changelog-date">07 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Medical Disclaimer: Renamed string resource from `setup_disclaimer` to `medical_disclaimer` to reflect its use across Setup Wizard, Calculation, and Nutrition Table screens. Added justified text alignment and extended the banner to Calculation and Nutrition Table tabs.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.15.0</h3><span class="changelog-date">07 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Setup Wizard: Replaced the single setup dialog with a 3-step wizard (Glucose Calculation → Meal Insulin Dividers → Nutrition Table) for a clearer first-run experience.</li>
+<li>Medical Disclaimer: Added a persistent disclaimer banner across all wizard steps, noting that values should be set under medical guidance and can be changed later via Settings.</li>
+<li>Native Language Names: Nutrition table language picker now displays each language in its native script (Ελληνικά, Français, Español, हिन्दी, Italiano, Português, 中文, Deutsch, 日本語).</li>
+<li>Skip Option: Users can skip the nutrition table setup entirely and start with an empty database.</li>
+<li>Input Validation: Numeric fields in the wizard and Settings now revert to the last valid value when focus is lost with invalid input.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.14.3</h3><span class="changelog-date">07 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Security Hardening: Enabled R8 code shrinking and obfuscation for release builds with comprehensive ProGuard keep rules for SQLDelight, Compose, DataStore, and ViewModels.</li>
+<li>Tamper Detection: Added APK signature verification at startup to detect repackaged or modified APKs.</li>
+<li>Backup Rules: Added explicit backup configuration (Android 6-11 `fullBackupContent` + Android 12+ `dataExtractionRules`) to ensure database and settings survive phone switches and reinstalls while excluding cache and temp files.</li>
+<li>Smoke Test Checklist: Added post-release manual verification steps to AGENTS.md to catch R8-induced runtime regressions.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.14.2</h3><span class="changelog-date">07 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Bug Fix: Selecting &quot;System Default&quot; in the language picker now correctly triggers the language change confirmation dialog and applies the system locale.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.14.1</h3><span class="changelog-date">07 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Bug Fix: Japanese nutrition table CSV now uses spaces between numbers and units (個, 枚, 本, カップ, サイズ, 大さじ), matching the format convention of all other locale CSVs. Fixes seeding failure on Japanese language selection.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.14.0</h3><span class="changelog-date">07 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Multi-Language Expansion: Added German and Japanese translations (UI strings + localized nutrition table food names), bringing total to 10 languages.</li>
+<li>Added `values-de/` and `values-ja/` string resource directories alongside new CSV seed files for both locales.</li>
+<li>Renamed Chinese resource directory from `values-zh-rCN/` to `values-zh/` for consistency with locale code usage across the app.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.13.3</h3><span class="changelog-date">07 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Clipboard text now uses localized format strings across all 8 languages, replacing previously hardcoded English labels (Total, Insulin from food, Insulin from glucose, Final Result).</li>
+<li>Clipboard glucose values now correctly display without trailing zeros (e.g., 180 instead of 180.0), matching pre-refactor behavior.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.13.2</h3><span class="changelog-date">07 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Simplified setup dialog: removed flag emojis from language selection cards for a cleaner look.</li>
+<li>Cleaned up 64 orphaned emoji string resources across all 8 locale files.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.13.1</h3><span class="changelog-date">07 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Dependency Updates: Compose BOM 2025.05.01 → 2026.05.01, Kotlin Compose Plugin 2.3.21 → 2.4.0, core-ktx 1.18.0 → 1.19.0, datastore-preferences 1.1.3 → 1.2.1, appcompat 1.7.0 → 1.7.1, mockk 1.14.9 → 1.14.11.</li>
+<li>Resolved deprecation warnings from Compose BOM bump (asFrameworkPaint → AndroidCanvas cast with @Suppress, MenuAnchorType → ExposedDropdownMenuAnchorType).</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.13.0</h3><span class="changelog-date">07 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Multi-Language Support: Added 7 new languages — Greek, French, Spanish, Hindi, Italian, Portuguese, and Mandarin — each with fully translated UI strings and nutrition table food names. Language auto-detected from system locale; manually adjustable via new Language picker in Settings.</li>
+<li>Localized Nutrition Tables: Bundled 8 locale-specific CSV files (107 foods each) for complete food name and unit translation across all supported languages.</li>
+<li>Expanded Setup Dialog: First-launch setup now presents all 8 language options with flag emojis, replacing the auto-seed approach.</li>
+<li>AppCompat Migration: Upgraded MainActivity from ComponentActivity to AppCompatActivity for robust locale switching via AppCompatDelegate.</li>
+<li>Language Persistence: Language choice saved to DataStore across restarts; changing language in Settings restarts the activity to apply new locale.</li>
+<li>UI Overflow Fixes: Navigation bar tab labels and dialog buttons now truncate with ellipsis when text overflows in longer translations.</li>
+<li>Branded Borders &amp; Geometry: Interactive elements feature a consistent 1.5dp branded border (Rhino Teal or Naples Yellow) for sharp definition.</li>
+<li>Database Seeder Refactored: Generic `seed(languageCode)` replaces deprecated `seedGreek()`/`seedEnglish()` methods.</li>
+<li>Premium Design System: &quot;Rhino &amp; Naples&quot; tonal surface hierarchy with three-stop vertical gradients, API-gated glassmorphism, multi-weight typography, branded shimmers, and custom soft shadows.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.12.2</h3><span class="changelog-date">06 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Bug Fix: Streak milestone celebration badge now appears only on exact milestone days (1, 2, 3, 5, 10...) instead of every day.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.12.1</h3><span class="changelog-date">06 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Bug Fix: Test data generator now correctly increments food usage counts, so frequent foods appear after seeding.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.12.0</h3><span class="changelog-date">06 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Time Range Filtering: Added 7-day, 30-day, 90-day, and All Time filters to the Statistics dashboard for flexible history analysis.</li>
+<li>Adaptive Chart Markers: Achievement stars and high-glucose &quot;X&quot; alerts now scale and fade based on data density, maintaining clarity during zoom/pan.</li>
+<li>Enhanced Zoom: Maximum chart zoom increased from 5x to 10x for deeper inspection of dense historical data.</li>
+<li>Developer Test Data Generator: New option in Settings to populate the database with synthetic calculation history for testing and demonstration.</li>
+<li>Zoom/Pan UX: Replaced time range toggle buttons with native pinch-to-zoom and drag-to-pan gestures for smoother chart exploration.</li>
+<li>Library Desugaring: Enabled JDK 8+ desugaring (`coreLibraryDesugaring`) for `java.time` compatibility on API 24+ devices.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.11.2</h3><span class="changelog-date">06 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>Chart Layout Refinements: Reduced padding and increased chart heights for a more compact, data-dense view.</li>
+<li>Rotated X-Axis Labels: Date labels now display at a 45° angle on chart cards, preventing overlap on narrow screens.</li>
+<li>Adaptive Label Count: PremiumLineChart dynamically adjusts visible date labels when zooming and panning.</li>
+<li>Bug Fix: Corrected tooltip tap offset where touch-to-datapoint selection was misaligned by ~8dp.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.11.1</h3><span class="changelog-date">06 Jun 2026</span></div>
+<ul class="changelog-changes">
+<li>UI Refinements: Added consistent press-scale animation to all interactive buttons (dialogs, FAB, date picker, settings gear).</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.11.0</h3><span class="changelog-date">24 May 2026</span></div>
+<ul class="changelog-changes">
+<li>Advanced Statistics Dashboard:</li>
+<li>5 Premium Charts: Added interactive plots for Meal Frequency, Top Foods, Total Carbs, Blood Glucose, and Bolus Result.</li>
+<li>Interactive Analysis: Implemented Pinch-to-Zoom (up to 5x) and Drag-to-Pan on all line charts for deep history exploration.</li>
+<li>Smart Tooltips: Added tap-to-inspect gestures showing exact values and timestamps with theme-aware styling.</li>
+<li>Health Visualizations: Integrated a green &quot;Safe Zone&quot; (80-140 mg/dL) and red &quot;X&quot; floating alerts for high glucose readings.</li>
+<li>Flexible Views: Added independent &quot;Per Entry&quot; and &quot;Daily Average&quot; toggles for every plot card.</li>
+<li>Gamified Streak System:</li>
+<li>Dynamic Welcome Card: High-fidelity hero section with glassmorphism and a progressive &quot;Experience Bar.&quot;</li>
+<li>30 Unique Milestones: Comprehensive reward path from Day 1 (🎊) to 5 Years (🪐) with exclusive emojis and messages.</li>
+<li>Interactive Celebration: Tapping the achievement badge triggers a particle-based &quot;Emoji Rain&quot; shower.</li>
+<li>Smarter Greetings: Adaptive messaging (&quot;Welcome&quot; vs &quot;Welcome back&quot;) and precise countdowns to next milestones.</li>
+<li>UI Refinements:</li>
+<li>Optimized Chart Layout: Added inner horizontal padding to plots for a more balanced, professional look.</li>
+<li>High-Contrast Indicators: Improved achievement star contrast for Light Mode.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.10.0</h3><span class="changelog-date">24 May 2026</span></div>
+<ul class="changelog-changes">
+<li>New Home Screen &amp; Navigation Update:</li>
+<li>Home Landing Screen: Added a new `HomeContent` as the first screen of the app with a simple &quot;Welcome back&quot; message.</li>
+<li>4-Tab Navigation: Updated the bottom navigation bar to include Home, Calculation, History, and Nutrition Table.</li>
+<li>Back-Press Logic: Implemented back-button handling where pressing back from other screens returns the user to the Home screen.</li>
+<li>Branding Continuity: Applied the &quot;Rhino &amp; Naples&quot; design system to the new Home screen.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.9.0</h3><span class="changelog-date">24 May 2026</span></div>
+<ul class="changelog-changes">
+<li>Navigation &amp; Layout Modernization:</li>
+<li>Bottom Navigation: Replaced top tabs with a modern `NavigationBar` for better reachability.</li>
+<li>Top Screen Titles: Added dynamic, bold screen titles at the top of every screen.</li>
+<li>Integrated Calculation Flow: Moved the final result card and action buttons into the scrollable list on the Calculation screen for a more natural, top-to-bottom workflow.</li>
+<li>Premium Navigation Style: Implemented a sleek, indicator-less navigation bar with proper system inset handling (&quot;efood&quot; style).</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.8.2</h3><span class="changelog-date">24 May 2026</span></div>
+<ul class="changelog-changes">
+<li>Premium Visual Overhaul (Final Pillars):</li>
+<li>Glassmorphism (Pillar 2): Implemented API-gated `RenderEffect` blur on API 31+ for a true frosted glass effect, isolated to background layers to keep content crisp.</li>
+<li>Tactile Depth (Pillar 5): Replaced standard shadows with a custom `softShadow` modifier using `drawBehind` for more diffused, high-end visual elevation.</li>
+<li>UI Polish: Refined border definitions and layering for `ModernDialog` and `ResultCard`.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.8.1</h3><span class="changelog-date">24 May 2026</span></div>
+<ul class="changelog-changes">
+<li>Premium micro-interactions: spring-based press scale animations on all buttons, chips, and cards</li>
+<li>Sophisticated motion: shimmer loading skeletons for food search and nutrition table</li>
+<li>Performance: optimized search debouncing with visual feedback</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.8.0</h3><span class="changelog-date">24 May 2026</span></div>
+<ul class="changelog-changes">
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Premium Visual Overhaul (Pillar 3)**:</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Premium Typography**: Implemented a comprehensive multi-weight hierarchy (Light to ExtraBold) with optimized letter spacing and line heights for a refined, modern aesthetic.</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Headline Optimization**: Redefined `headlineLarge` as a prominent ExtraBold 32sp style for high-contrast numeric displays (final results).</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **UI-wide Audit**: Standardized typography roles across all screens, replacing hardcoded weights with semantic Material 3 roles.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.7.0</h3><span class="changelog-date">24 May 2026</span></div>
+<ul class="changelog-changes">
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Premium Visual Overhaul**:</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Tonal Surface Hierarchy**: Deepened the light theme background (`#E9EDF2`) and saturated the primary colors for significantly improved contrast and structural clarity.</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Sophisticated Gradients**: Introduced subtle, directional linear gradients to all cards and page backgrounds, providing a sense of natural light and depth.</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Glassmorphism**: Primary action cards (like the Result Card) and all Dialogs now use semi-transparent layered gradients for a modern, high-end feel.</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Tactile Depth**: Added soft shadows and high-contrast borders to cards in Light Mode to make them &quot;pop&quot; and feel like distinct physical layers.</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Splash Screen**: System splash screen shown on launch while DataStore settings initialize</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Initialization Guard**: UI waits for settings to load before rendering content</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **IME &amp; Focus Handling**: Input fields auto-scroll into view when focused; dialogs scroll with IME open</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Enhanced Food Selection UI**: Refactored food selection card and improved tally list interaction</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Save Button Redesign**: Updated save-to-history button appearance and card spacing</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **MealTime Button Colors**: Fixed button colors to use the primary color scheme</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.6.0</h3><span class="changelog-date">23 May 2026</span></div>
+<ul class="changelog-changes">
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **User-Configurable Settings**: New Settings screen with theme, glucose parameters, and meal insulin dividers</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Reactive Calculations**: Food insulin and final result update automatically when settings change</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **History Self-Describing Entries**: Saved calculations now store meal labels, glucose threshold, baseline, and divisor</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Meal Labels from Button**: Meal time labels are now derived from the user's selected button, not from divider values — no collision issues</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Back Button Support**: System back button closes the Settings screen instead of exiting the app</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Snackbar Feedback**: &quot;Settings updated&quot; confirmation when changing any setting</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Defensive Guards**: Zero-divisor protection and non-negative insulin correction clamping</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.5.0</h3><span class="changelog-date">20 May 2026</span></div>
+<ul class="changelog-changes">
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Calendar Navigation**: Clickable Month/Year header opens a DatePicker to jump to any date.</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Quick Today**: New &quot;Today&quot; button in the calendar header for instant return to current date.</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **UI Polish**: Fixed rectangular ripples on date selection (now clean circular feedback).</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **History Cards**: Redesigned history entries with meal badges (Morning, Midday, Evening) and structured calculation formulas.</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Consistency**: Final result styling in History tab now matches the green ResultCard in the Calculation tab.</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>  **Cleanup**: Removed dead imports and simplified FontStyle references.</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.4.1</h3><span class="changelog-date">20 May 2026</span></div>
+<ul class="changelog-changes">
+<li style='padding-left:1.25rem;list-style-type:circle;'>Added food deselection button to clear selected item in Calculation tab</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.4.0</h3><span class="changelog-date">20 May 2026</span></div>
+<ul class="changelog-changes">
+<li style='padding-left:1.25rem;list-style-type:circle;'>New History tab with calendar view for saved calculations</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Save final calculation to history (bookmark button in result card)</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Hard deduplication — identical calculations cannot be saved twice</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Soft 3-per-day limit with confirmation dialog for additional entries</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Meal time detection from device clock (Morning 4–12, Midday 12–17, Evening 17–4)</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Meal time mismatch warning when selected divider doesn't match current time</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Full copy support per history entry (matches &quot;Copy All&quot; format)</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Meal time label in insulin calculation line (e.g., `Insulin from food: 87.00 / 12 (Morning) = 7.25`)</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Tab icons: Calculate, CalendarMonth, and Storage (modern Material icons)</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>View, browse, and delete past calculations from the calendar screen</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.3.2</h3><span class="changelog-date">20 May 2026</span></div>
+<ul class="changelog-changes">
+<li style='padding-left:1.25rem;list-style-type:circle;'>CSV import error messages now include format guidance</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.3.1</h3><span class="changelog-date">20 May 2026</span></div>
+<ul class="changelog-changes">
+<li style='padding-left:1.25rem;list-style-type:circle;'>Food search and nutrition table UI refactor</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Tally entry UI improvements and numeric formatting</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>CSV import and export for food data</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.3.0</h3><span class="changelog-date">19 May 2025</span></div>
+<ul class="changelog-changes">
+<li style='padding-left:1.25rem;list-style-type:circle;'>Multi-tab navigation between Calculation and Nutrition Table</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>English language support and nutrition database CRUD operations</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Custom ModernDialog component replacing system AlertDialogs</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Refactored calculation logic into utility classes</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Comprehensive unit tests for calculation, parsing, and validation</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.2.1</h3><span class="changelog-date">18 May 2025</span></div>
+<ul class="changelog-changes">
+<li style='padding-left:1.25rem;list-style-type:circle;'>Frequent foods feature with usage count and last-used tracking</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Quick re-selection via AssistChip row above food list</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.2.0</h3><span class="changelog-date">17 May 2025</span></div>
+<ul class="changelog-changes">
+<li style='padding-left:1.25rem;list-style-type:circle;'>Card-based Material 3 UI layout with logical grouping</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Automatic carbohydrate calculation (calculateQuietly)</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Blood glucose correction logic</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Individual tally entry removal</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Copy-to-clipboard includes total and final insulin results</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Carbohydrate value display for selected food items</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.1.0</h3><span class="changelog-date">16 May 2025</span></div>
+<ul class="changelog-changes">
+<li style='padding-left:1.25rem;list-style-type:circle;'>Project restructured — legacy Python implementation removed</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>SQLDelight food database initialized with CSV seeding</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>New app launcher icons and logo assets</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Creative Commons BY-NC-SA 4.0 license</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>All lint warnings fixed, dependencies upgraded</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>AGENTS.md documentation added</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.0.3</h3><span class="changelog-date">6 May 2025</span></div>
+<ul class="changelog-changes">
+<li style='padding-left:1.25rem;list-style-type:circle;'>Copy-to-clipboard functionality</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>Emoji UI polish</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.0.2</h3><span class="changelog-date">4 Apr 2025</span></div>
+<ul class="changelog-changes">
+<li style='padding-left:1.25rem;list-style-type:circle;'>Enhanced calculation functionality</li>
+<li style='padding-left:1.25rem;list-style-type:circle;'>UI element adjustments</li>
+</ul>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.0.1</h3><span class="changelog-date">16 Jan 2025</span></div>
+<ul class="changelog-changes">
+<li style='padding-left:1.25rem;list-style-type:circle;'>Initial release</li>
+</ul>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- Privacy Policy Section -->
+    <section class="section" id="privacy">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Privacy Policy</h2>
+                <p>Last updated: 16 Jun 2026</p>
+            </div>
+            <div class="privacy-content fade-in">
+                <h4>Privacy Policy</h4>
+                <p>This privacy policy applies to the Mininio Carb Tracker app for mobile devices, together with any related services operated by Konstantinos Giantsios (collectively, the &ldquo;Application&rdquo;). Konstantinos Giantsios is hereby referred to as the &ldquo;Service Provider&rdquo;.</p>
+
+                <h4>What information does the Application obtain and how is it used?</h4>
+                <p>The Application does not collect, log, or store any personal information when you download and use it. Registration is not required. If the Application is used with an active internet connection, technical protocol data (such as your ephemeral IP address) is transmitted to facilitate network connectivity, but this data is not retained or used for tracking.</p>
+
+                <h4>Does the Application collect precise real time location information of the device?</h4>
+                <p>This Application does not collect precise information about the location of your mobile device.</p>
+
+                <h4>Do third parties see and/or have access to information obtained by the Application?</h4>
+                <p>Since the Application does not collect any information, no data is shared with third parties.</p>
+
+                <h4>What are my opt-out rights?</h4>
+                <p>Since the Application does not collect personal information through normal use, uninstalling it simply removes the Application from your device.</p>
+                <p>If you contact the Service Provider directly or voluntarily provide information by other means, you may request deletion of that information by contacting <a href="mailto:constantinos.giantsios@gmail.com">constantinos.giantsios@gmail.com</a>.</p>
+
+                <h4>Children</h4>
+                <p>The Application is not intended for children under 16 years of age, or such higher age as required by applicable law. The Service Provider does not knowingly solicit data from children or market to them. Since the Application does not collect personal information through normal use, children&apos;s data is not at risk from use of the Application alone.</p>
+
+                <h4>Security</h4>
+                <p>All data stored by the Application resides exclusively on your device. The Service Provider does not have access to this data and does not transmit it over any network.</p>
+
+                <h4>Changes</h4>
+                <p>This Privacy Policy may be updated from time to time. Any changes will be posted on this page. You are advised to review this Privacy Policy periodically for any changes.</p>
+
+                <h4>Your Consent</h4>
+                <p>By using the Application, you consent to the terms outlined in this Privacy Policy.</p>
+
+                <h4>Contact Us</h4>
+                <p>If you have any questions regarding this Privacy Policy, please contact: <a href="mailto:constantinos.giantsios@gmail.com">constantinos.giantsios@gmail.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <a href="https://github.com/CoGian/mininio_carb_tracker" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+                <a href="mailto:constantinos.giantsios@gmail.com" class="footer-link">Contact</a>
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="footer-link" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
+            </div>
+            <p class="footer-info">
+                &copy; 2025–2026 Konstantinos Giantsios &mdash; Version <span>0.15.6</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
