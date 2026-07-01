@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Transparent Background for Favicon -->
+  
+  <g transform="translate(0, 10)">
+    <!-- Turtle Tail -->
+    <polygon points="256,430 230,370 282,370" fill="#2ecc71" />
+    
+    <!-- Turtle Legs -->
+    <!-- Top Left -->
+    <rect x="120" y="140" width="56" height="90" rx="28" fill="#2ecc71" transform="rotate(-45 148 185)" />
+    <!-- Top Right -->
+    <rect x="336" y="140" width="56" height="90" rx="28" fill="#2ecc71" transform="rotate(45 364 185)" />
+    <!-- Bottom Left -->
+    <rect x="120" y="310" width="56" height="90" rx="28" fill="#2ecc71" transform="rotate(45 148 355)" />
+    <!-- Bottom Right -->
+    <rect x="336" y="310" width="56" height="90" rx="28" fill="#2ecc71" transform="rotate(-45 364 355)" />
+
+    <!-- Turtle Head -->
+    <circle cx="256" cy="110" r="54" fill="#2ecc71" />
+    <!-- Eyes -->
+    <circle cx="230" cy="95" r="8" fill="#ffffff" />
+    <circle cx="230" cy="95" r="4" fill="#1e242c" />
+    <circle cx="282" cy="95" r="8" fill="#ffffff" />
+    <circle cx="282" cy="95" r="4" fill="#1e242c" />
+
+    <!-- Shell / Laptop Base (Drop Shadow) -->
+    <rect x="120" y="150" width="272" height="272" rx="45" fill="#12151a" />
+    <!-- Shell Base -->
+    <rect x="120" y="140" width="272" height="272" rx="45" fill="#2b3b4a" />
+    
+    <!-- Terminal Outer Bezel -->
+    <rect x="146" y="166" width="220" height="220" rx="25" fill="#1c2530" />
+    
+    <!-- Terminal Window -->
+    <rect x="160" y="180" width="192" height="192" rx="12" fill="#0d1117" />
+    
+    <!-- Terminal Top Bar -->
+    <path d="M 160 192 A 12 12 0 0 1 172 180 L 340 180 A 12 12 0 0 1 352 192 L 352 208 L 160 208 Z" fill="#30363d" />
+    
+    <!-- Window Controls (Mac Style) -->
+    <circle cx="178" cy="194" r="5" fill="#ff5f56" />
+    <circle cx="194" cy="194" r="5" fill="#ffbd2e" />
+    <circle cx="210" cy="194" r="5" fill="#27c93f" />
+
+    <!-- Code >_ Prompt -->
+    <text x="178" y="246" font-family="'Courier New', Courier, monospace" font-size="34" font-weight="bold" fill="#00ff00">&gt;_</text>
+    
+    <!-- Animated Blinking Cursor -->
+    <rect x="228" y="218" width="18" height="32" fill="#00ff00">
+      <animate attributeName="opacity" values="1;0;1" dur="1.2s" repeatCount="indefinite" />
+    </rect>
+
+    <!-- Syntax Highlighted Code Lines -->
+    <rect x="178" y="270" width="50" height="10" rx="5" fill="#ff7b72" opacity="0.9"/>
+    <rect x="238" y="270" width="100" height="10" rx="5" fill="#79c0ff" opacity="0.9"/>
+    
+    <rect x="178" y="295" width="140" height="10" rx="5" fill="#d2a8ff" opacity="0.9"/>
+    
+    <rect x="178" y="320" width="30" height="10" rx="5" fill="#ff7b72" opacity="0.9"/>
+    <rect x="218" y="320" width="110" height="10" rx="5" fill="#a5d6ff" opacity="0.9"/>
+    
+    <rect x="178" y="345" width="80" height="10" rx="5" fill="#79c0ff" opacity="0.9"/>
+  </g>
+</svg>
