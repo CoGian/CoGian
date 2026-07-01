@@ -28,7 +28,7 @@ jobs:
           python-version: '3.11'
 
       - name: Build site
-        run: python3 pages/build.py --repo-path _private --output-dir mininio
+        run: python3 build/build.py --repo-path _private --output-dir mininio
 
       - name: Commit and push
         run: |
