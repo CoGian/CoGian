@@ -114,7 +114,11 @@ def build(repo_path, output_dir):
         shutil.rmtree(site_dir)
     site_dir.mkdir(parents=True, exist_ok=True)
 
-    images_dest = site_dir / "images"
+    css_dir = site_dir / "css"
+    js_dir = site_dir / "js"
+    images_dest = site_dir / "assets" / "images"
+    css_dir.mkdir(parents=True, exist_ok=True)
+    js_dir.mkdir(parents=True, exist_ok=True)
     images_dest.mkdir(parents=True, exist_ok=True)
 
     # Write index.html
@@ -122,12 +126,17 @@ def build(repo_path, output_dir):
     index_path.write_text(output, encoding="utf-8")
     print(f"Written: {index_path} ({len(output)} bytes)")
 
-    # Copy static assets
-    for asset in ["styles.css", "script.js"]:
-        src = PAGES_DIR / asset
-        if src.exists():
-            shutil.copy2(src, site_dir / asset)
-            print(f"Copied: {asset}")
+    # Copy CSS
+    css_src = PAGES_DIR / "styles.css"
+    if css_src.exists():
+        shutil.copy2(css_src, css_dir / "styles.css")
+        print(f"Copied: css/styles.css")
+
+    # Copy JS
+    js_src = PAGES_DIR / "main.js"
+    if js_src.exists():
+        shutil.copy2(js_src, js_dir / "main.js")
+        print(f"Copied: js/main.js")
 
     # Copy images
     images_src = PAGES_DIR / "images"
@@ -135,7 +144,7 @@ def build(repo_path, output_dir):
         for img in images_src.iterdir():
             if img.is_file():
                 shutil.copy2(img, images_dest / img.name)
-                print(f"Copied: images/{img.name}")
+                print(f"Copied: assets/images/{img.name}")
 
     print(f"\nBuild complete! Site ready in {site_dir}/")
     return 0
