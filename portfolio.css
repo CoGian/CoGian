@@ -505,7 +505,7 @@ p { color: var(--text-secondary); font-size: 1.05rem; }
 }
 
 .btn svg {
-    /* alignment fix if needed */
+    transform: translateY(1px);
 }
 
 .btn:hover { transform: scale(1.03); }
