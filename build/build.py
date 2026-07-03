@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Build script for Mininio: Carb & Insulin Calc GitHub Pages site.
 
 Reads version + changelog from a private repo checkout and generates
@@ -48,8 +48,10 @@ def build_changelog_html(repo_path):
         m = re.match(r"^## (\d+\.\d+\.\d+) \(([^)]+)\)", line)
         if m:
             version, date = m.group(1), m.group(2)
-            if html_parts and "</ul>" not in html_parts[-1]:
-                html_parts.append("</ul>")
+            if html_parts:
+                if "</ul>" not in html_parts[-1]:
+                    html_parts.append("</ul>")
+                html_parts.append("</div>")
             html_parts.append('<div class="changelog-entry">')
             html_parts.append(
                 f'<div class="changelog-version"><h3>v{version}</h3>'
