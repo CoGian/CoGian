@@ -18,7 +18,7 @@ jobs:
       - name: Checkout private repo
         uses: actions/checkout@v7
         with:
-          repository: CoGian/mininio_carb_tracker
+          repository: CoGian/mininio-carb-insulin-calc
           token: ${{ secrets.PRIVATE_REPO_TOKEN }}
           path: _private
 

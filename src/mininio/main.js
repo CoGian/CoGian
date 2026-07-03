@@ -1,4 +1,4 @@
-﻿// Mininio Carb Tracker - GitHub Pages
+﻿// Mininio: Carb & Insulin Calc - GitHub Pages
 // Smooth scroll, mobile nav, fade-in animations, changelog interactions
 
 (function () {

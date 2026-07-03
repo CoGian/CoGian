@@ -1,5 +1,5 @@
 ﻿#!/usr/bin/env python3
-"""Build script for Mininio Carb Tracker GitHub Pages site.
+"""Build script for Mininio: Carb & Insulin Calc GitHub Pages site.
 
 Reads version + changelog from a private repo checkout and generates
 the static site for deployment.
@@ -151,11 +151,11 @@ def build(repo_path, output_dir):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Build Mininio Carb Tracker pages site")
+    parser = argparse.ArgumentParser(description="Build Mininio: Carb & Insulin Calc pages site")
     parser.add_argument(
         "--repo-path",
         required=True,
-        help="Path to cloned mininio_carb_tracker repo (for version + changelog)",
+        help="Path to cloned mininio-carb-insulin-calc repo (for version + changelog)",
     )
     parser.add_argument(
         "--output-dir",
