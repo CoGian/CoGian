@@ -51,7 +51,7 @@
         <h1>Mininio: Carb & Insulin Calc</h1>
         <p class="tagline">The private, offline carb calculator with custom insulin ratio math. Your data, your device, your numbers.</p>
         <div class="hero-badges">
-            <span class="badge badge-version">v0.15.8</span>
+            <span class="badge badge-version">v0.15.9</span>
             <span class="badge badge-platform">Android</span>
             <span class="badge badge-platform">10 Languages</span>
             <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener" class="badge badge-platform" style="background:rgba(247,224,138,0.15);border-color:rgba(247,224,138,0.25);color:var(--naples-yellow);">CC BY-NC-SA 4.0</a>
@@ -185,6 +185,12 @@
             </div>
             <div class="changelog" id="changelogContainer">
                 <div class="changelog-entry">
+<div class="changelog-version"><h3>v0.15.9</h3><span class="changelog-date">04 Jul 2026</span></div>
+<ul class="changelog-changes">
+<li>Bug Fix: Developer seed section now correctly hidden in release builds by explicitly setting `isDebuggable = false` for the release build type.</li>
+<li>Developer Tools: Seed data generation feature is now properly gated behind debug builds only, preventing it from appearing in production releases.</li>
+</ul>
+<div class="changelog-entry">
 <div class="changelog-version"><h3>v0.15.8</h3><span class="changelog-date">03 Jul 2026</span></div>
 <ul class="changelog-changes">
 <li>Refactor: Updated directory and repository references to reflect the rename to `mininio-carb-insulin-calc`.</li>
@@ -518,7 +524,7 @@
         <div class="container">
             <div class="section-header fade-in">
                 <h2>Privacy Policy</h2>
-                <p>Last updated: 03 Jul 2026</p>
+                <p>Last updated: 04 Jul 2026</p>
             </div>
             <div class="privacy-content fade-in">
                 <h4>Privacy Policy</h4>
@@ -564,7 +570,7 @@
                 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="footer-link" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
             </div>
             <p class="footer-info">
-                &copy; 2025–2026 Konstantinos Giantsios &mdash; Version <span>0.15.8</span>
+                &copy; 2025–2026 Konstantinos Giantsios &mdash; Version <span>0.15.9</span>
             </p>
         </div>
     </footer>
