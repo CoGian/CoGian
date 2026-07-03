@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -189,39 +189,33 @@
 <ul class="changelog-changes">
 <li>Refactor: Updated directory and repository references to reflect the rename to `mininio-carb-insulin-calc`.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.15.7</h3><span class="changelog-date">03 Jul 2026</span></div>
 <ul class="changelog-changes">
 <li>Rename: App renamed from &quot;Mininio Carb Tracker&quot; to &quot;Mininio: Carb &amp; Insulin Calc&quot; across all user-visible strings, class names, and documentation.</li>
 <li>Refactor: Renamed `MininioCarbTrackerApp` to `MininioApp` and `MininioCarbTrackerTheme` to `MininioTheme`.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.15.6</h3><span class="changelog-date">16 Jun 2026</span></div>
 <ul class="changelog-changes">
 <li>Refactor: Renamed package to `com.kgiantsios.mininiocarbtracker` and app name to &quot;Mininio: Carb &amp; Insulin Calc&quot;.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.15.5</h3><span class="changelog-date">16 Jun 2026</span></div>
 <ul class="changelog-changes">
 <li>Refactor: Renamed &quot;streak&quot; system to &quot;days tracked&quot; — now counts all unique days ever logged instead of consecutive days with a strict reset, making the system more forgiving for users who miss a day.</li>
 <li>UI: Replaced milestone emojis with background rendering issues (360🎆→🥇, 540🎇→♾️, 1260⚛️→☄️) for cleaner display on all Android versions.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.15.4</h3><span class="changelog-date">16 Jun 2026</span></div>
 <ul class="changelog-changes">
 <li>Fixed: Charts on the Home screen no longer block vertical scrolling. Replaced `detectTransformGestures` with a custom direction-aware gesture handler (`detectChartGestures`) that distinguishes vertical drags (scroll) from horizontal drags (pan) and pinches (zoom).</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.15.3</h3><span class="changelog-date">08 Jun 2026</span></div>
 <ul class="changelog-changes">
 <li>UI: Medical disclaimer banner now uses an accordion-style design — defaults to expanded, tappable to collapse/expand with smooth chevron rotation animation.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.15.2</h3><span class="changelog-date">08 Jun 2026</span></div>
 <ul class="changelog-changes">
@@ -231,13 +225,11 @@
 <li>Refactor: Extracted shared `LanguagePickerSection` composable, eliminating duplication between SetupWizard and NutritionTableScreen.</li>
 <li>UI: Added medical disclaimer banner to the import confirm dialog.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.15.1</h3><span class="changelog-date">07 Jun 2026</span></div>
 <ul class="changelog-changes">
 <li>Medical Disclaimer: Renamed string resource from `setup_disclaimer` to `medical_disclaimer` to reflect its use across Setup Wizard, Calculation, and Nutrition Table screens. Added justified text alignment and extended the banner to Calculation and Nutrition Table tabs.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.15.0</h3><span class="changelog-date">07 Jun 2026</span></div>
 <ul class="changelog-changes">
@@ -247,7 +239,6 @@
 <li>Skip Option: Users can skip the nutrition table setup entirely and start with an empty database.</li>
 <li>Input Validation: Numeric fields in the wizard and Settings now revert to the last valid value when focus is lost with invalid input.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.14.3</h3><span class="changelog-date">07 Jun 2026</span></div>
 <ul class="changelog-changes">
@@ -256,19 +247,16 @@
 <li>Backup Rules: Added explicit backup configuration (Android 6-11 `fullBackupContent` + Android 12+ `dataExtractionRules`) to ensure database and settings survive phone switches and reinstalls while excluding cache and temp files.</li>
 <li>Smoke Test Checklist: Added post-release manual verification steps to AGENTS.md to catch R8-induced runtime regressions.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.14.2</h3><span class="changelog-date">07 Jun 2026</span></div>
 <ul class="changelog-changes">
 <li>Bug Fix: Selecting &quot;System Default&quot; in the language picker now correctly triggers the language change confirmation dialog and applies the system locale.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.14.1</h3><span class="changelog-date">07 Jun 2026</span></div>
 <ul class="changelog-changes">
 <li>Bug Fix: Japanese nutrition table CSV now uses spaces between numbers and units (個, 枚, 本, カップ, サイズ, 大さじ), matching the format convention of all other locale CSVs. Fixes seeding failure on Japanese language selection.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.14.0</h3><span class="changelog-date">07 Jun 2026</span></div>
 <ul class="changelog-changes">
@@ -276,28 +264,24 @@
 <li>Added `values-de/` and `values-ja/` string resource directories alongside new CSV seed files for both locales.</li>
 <li>Renamed Chinese resource directory from `values-zh-rCN/` to `values-zh/` for consistency with locale code usage across the app.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.13.3</h3><span class="changelog-date">07 Jun 2026</span></div>
 <ul class="changelog-changes">
 <li>Clipboard text now uses localized format strings across all 8 languages, replacing previously hardcoded English labels (Total, Insulin from food, Insulin from glucose, Final Result).</li>
 <li>Clipboard glucose values now correctly display without trailing zeros (e.g., 180 instead of 180.0), matching pre-refactor behavior.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.13.2</h3><span class="changelog-date">07 Jun 2026</span></div>
 <ul class="changelog-changes">
 <li>Simplified setup dialog: removed flag emojis from language selection cards for a cleaner look.</li>
 <li>Cleaned up 64 orphaned emoji string resources across all 8 locale files.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.13.1</h3><span class="changelog-date">07 Jun 2026</span></div>
 <ul class="changelog-changes">
 <li>Dependency Updates: Compose BOM 2025.05.01 → 2026.05.01, Kotlin Compose Plugin 2.3.21 → 2.4.0, core-ktx 1.18.0 → 1.19.0, datastore-preferences 1.1.3 → 1.2.1, appcompat 1.7.0 → 1.7.1, mockk 1.14.9 → 1.14.11.</li>
 <li>Resolved deprecation warnings from Compose BOM bump (asFrameworkPaint → AndroidCanvas cast with @Suppress, MenuAnchorType → ExposedDropdownMenuAnchorType).</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.13.0</h3><span class="changelog-date">07 Jun 2026</span></div>
 <ul class="changelog-changes">
@@ -311,19 +295,16 @@
 <li>Database Seeder Refactored: Generic `seed(languageCode)` replaces deprecated `seedGreek()`/`seedEnglish()` methods.</li>
 <li>Premium Design System: &quot;Rhino &amp; Naples&quot; tonal surface hierarchy with three-stop vertical gradients, API-gated glassmorphism, multi-weight typography, branded shimmers, and custom soft shadows.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.12.2</h3><span class="changelog-date">06 Jun 2026</span></div>
 <ul class="changelog-changes">
 <li>Bug Fix: Streak milestone celebration badge now appears only on exact milestone days (1, 2, 3, 5, 10...) instead of every day.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.12.1</h3><span class="changelog-date">06 Jun 2026</span></div>
 <ul class="changelog-changes">
 <li>Bug Fix: Test data generator now correctly increments food usage counts, so frequent foods appear after seeding.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.12.0</h3><span class="changelog-date">06 Jun 2026</span></div>
 <ul class="changelog-changes">
@@ -334,7 +315,6 @@
 <li>Zoom/Pan UX: Replaced time range toggle buttons with native pinch-to-zoom and drag-to-pan gestures for smoother chart exploration.</li>
 <li>Library Desugaring: Enabled JDK 8+ desugaring (`coreLibraryDesugaring`) for `java.time` compatibility on API 24+ devices.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.11.2</h3><span class="changelog-date">06 Jun 2026</span></div>
 <ul class="changelog-changes">
@@ -343,13 +323,11 @@
 <li>Adaptive Label Count: PremiumLineChart dynamically adjusts visible date labels when zooming and panning.</li>
 <li>Bug Fix: Corrected tooltip tap offset where touch-to-datapoint selection was misaligned by ~8dp.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.11.1</h3><span class="changelog-date">06 Jun 2026</span></div>
 <ul class="changelog-changes">
 <li>UI Refinements: Added consistent press-scale animation to all interactive buttons (dialogs, FAB, date picker, settings gear).</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.11.0</h3><span class="changelog-date">24 May 2026</span></div>
 <ul class="changelog-changes">
@@ -368,7 +346,6 @@
 <li>Optimized Chart Layout: Added inner horizontal padding to plots for a more balanced, professional look.</li>
 <li>High-Contrast Indicators: Improved achievement star contrast for Light Mode.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.10.0</h3><span class="changelog-date">24 May 2026</span></div>
 <ul class="changelog-changes">
@@ -378,7 +355,6 @@
 <li>Back-Press Logic: Implemented back-button handling where pressing back from other screens returns the user to the Home screen.</li>
 <li>Branding Continuity: Applied the &quot;Rhino &amp; Naples&quot; design system to the new Home screen.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.9.0</h3><span class="changelog-date">24 May 2026</span></div>
 <ul class="changelog-changes">
@@ -388,7 +364,6 @@
 <li>Integrated Calculation Flow: Moved the final result card and action buttons into the scrollable list on the Calculation screen for a more natural, top-to-bottom workflow.</li>
 <li>Premium Navigation Style: Implemented a sleek, indicator-less navigation bar with proper system inset handling (&quot;efood&quot; style).</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.8.2</h3><span class="changelog-date">24 May 2026</span></div>
 <ul class="changelog-changes">
@@ -397,7 +372,6 @@
 <li>Tactile Depth (Pillar 5): Replaced standard shadows with a custom `softShadow` modifier using `drawBehind` for more diffused, high-end visual elevation.</li>
 <li>UI Polish: Refined border definitions and layering for `ModernDialog` and `ResultCard`.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.8.1</h3><span class="changelog-date">24 May 2026</span></div>
 <ul class="changelog-changes">
@@ -405,7 +379,6 @@
 <li>Sophisticated motion: shimmer loading skeletons for food search and nutrition table</li>
 <li>Performance: optimized search debouncing with visual feedback</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.8.0</h3><span class="changelog-date">24 May 2026</span></div>
 <ul class="changelog-changes">
@@ -414,7 +387,6 @@
 <li style='padding-left:1.25rem;list-style-type:circle;'>  **Headline Optimization**: Redefined `headlineLarge` as a prominent ExtraBold 32sp style for high-contrast numeric displays (final results).</li>
 <li style='padding-left:1.25rem;list-style-type:circle;'>  **UI-wide Audit**: Standardized typography roles across all screens, replacing hardcoded weights with semantic Material 3 roles.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.7.0</h3><span class="changelog-date">24 May 2026</span></div>
 <ul class="changelog-changes">
@@ -430,7 +402,6 @@
 <li style='padding-left:1.25rem;list-style-type:circle;'>  **Save Button Redesign**: Updated save-to-history button appearance and card spacing</li>
 <li style='padding-left:1.25rem;list-style-type:circle;'>  **MealTime Button Colors**: Fixed button colors to use the primary color scheme</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.6.0</h3><span class="changelog-date">23 May 2026</span></div>
 <ul class="changelog-changes">
@@ -442,7 +413,6 @@
 <li style='padding-left:1.25rem;list-style-type:circle;'>  **Snackbar Feedback**: &quot;Settings updated&quot; confirmation when changing any setting</li>
 <li style='padding-left:1.25rem;list-style-type:circle;'>  **Defensive Guards**: Zero-divisor protection and non-negative insulin correction clamping</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.5.0</h3><span class="changelog-date">20 May 2026</span></div>
 <ul class="changelog-changes">
@@ -453,13 +423,11 @@
 <li style='padding-left:1.25rem;list-style-type:circle;'>  **Consistency**: Final result styling in History tab now matches the green ResultCard in the Calculation tab.</li>
 <li style='padding-left:1.25rem;list-style-type:circle;'>  **Cleanup**: Removed dead imports and simplified FontStyle references.</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.4.1</h3><span class="changelog-date">20 May 2026</span></div>
 <ul class="changelog-changes">
 <li style='padding-left:1.25rem;list-style-type:circle;'>Added food deselection button to clear selected item in Calculation tab</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.4.0</h3><span class="changelog-date">20 May 2026</span></div>
 <ul class="changelog-changes">
@@ -474,13 +442,11 @@
 <li style='padding-left:1.25rem;list-style-type:circle;'>Tab icons: Calculate, CalendarMonth, and Storage (modern Material icons)</li>
 <li style='padding-left:1.25rem;list-style-type:circle;'>View, browse, and delete past calculations from the calendar screen</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.3.2</h3><span class="changelog-date">20 May 2026</span></div>
 <ul class="changelog-changes">
 <li style='padding-left:1.25rem;list-style-type:circle;'>CSV import error messages now include format guidance</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.3.1</h3><span class="changelog-date">20 May 2026</span></div>
 <ul class="changelog-changes">
@@ -488,7 +454,6 @@
 <li style='padding-left:1.25rem;list-style-type:circle;'>Tally entry UI improvements and numeric formatting</li>
 <li style='padding-left:1.25rem;list-style-type:circle;'>CSV import and export for food data</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.3.0</h3><span class="changelog-date">19 May 2025</span></div>
 <ul class="changelog-changes">
@@ -498,14 +463,12 @@
 <li style='padding-left:1.25rem;list-style-type:circle;'>Refactored calculation logic into utility classes</li>
 <li style='padding-left:1.25rem;list-style-type:circle;'>Comprehensive unit tests for calculation, parsing, and validation</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.2.1</h3><span class="changelog-date">18 May 2025</span></div>
 <ul class="changelog-changes">
 <li style='padding-left:1.25rem;list-style-type:circle;'>Frequent foods feature with usage count and last-used tracking</li>
 <li style='padding-left:1.25rem;list-style-type:circle;'>Quick re-selection via AssistChip row above food list</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.2.0</h3><span class="changelog-date">17 May 2025</span></div>
 <ul class="changelog-changes">
@@ -516,7 +479,6 @@
 <li style='padding-left:1.25rem;list-style-type:circle;'>Copy-to-clipboard includes total and final insulin results</li>
 <li style='padding-left:1.25rem;list-style-type:circle;'>Carbohydrate value display for selected food items</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.1.0</h3><span class="changelog-date">16 May 2025</span></div>
 <ul class="changelog-changes">
@@ -527,21 +489,18 @@
 <li style='padding-left:1.25rem;list-style-type:circle;'>All lint warnings fixed, dependencies upgraded</li>
 <li style='padding-left:1.25rem;list-style-type:circle;'>AGENTS.md documentation added</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.0.3</h3><span class="changelog-date">6 May 2025</span></div>
 <ul class="changelog-changes">
 <li style='padding-left:1.25rem;list-style-type:circle;'>Copy-to-clipboard functionality</li>
 <li style='padding-left:1.25rem;list-style-type:circle;'>Emoji UI polish</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.0.2</h3><span class="changelog-date">4 Apr 2025</span></div>
 <ul class="changelog-changes">
 <li style='padding-left:1.25rem;list-style-type:circle;'>Enhanced calculation functionality</li>
 <li style='padding-left:1.25rem;list-style-type:circle;'>UI element adjustments</li>
 </ul>
-</div>
 <div class="changelog-entry">
 <div class="changelog-version"><h3>v0.0.1</h3><span class="changelog-date">16 Jan 2025</span></div>
 <ul class="changelog-changes">
