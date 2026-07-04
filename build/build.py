@@ -12,7 +12,7 @@ import shutil
 import sys
 from pathlib import Path
 
-PAGES_DIR = Path(__file__).resolve().parent.parent / "src" / "mininio"
+PAGES_DIR = Path(__file__).resolve().parent / "mininio"
 
 
 def extract_version(repo_path):
