@@ -408,7 +408,7 @@ p { color: var(--text-secondary); font-size: 1.05rem; }
 .edu-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg), var(--shadow-glow); }
 
 .edu-logo {
-    width: 48px; height: 48px; border-radius: 6px;
+    width: 64px; height: 64px; border-radius: 6px;
     margin-bottom: 1rem; object-fit: contain;
 }
 
