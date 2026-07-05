@@ -454,6 +454,26 @@ p { color: var(--text-secondary); font-size: 1.05rem; }
     font-size: 1.3rem; margin-bottom: 1rem;
 }
 
+img.project-icon {
+    object-fit: contain;
+    background: var(--surface);
+}
+
+.project-thumbnail {
+    margin: -1.75rem -1.75rem 1rem -1.75rem;
+    width: calc(100% + 3.5rem);
+    height: 140px;
+    object-fit: cover;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .project-thumbnail {
+        height: 120px;
+    }
+}
+
 .project-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
 .project-card p { font-size: 0.88rem; line-height: 1.55; margin-bottom: 1rem; flex: 1; }
 .project-card:hover h3 { color: var(--accent); }
