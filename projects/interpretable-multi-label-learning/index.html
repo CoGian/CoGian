@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interpretable Multi-Label Learning in Biomedical Texts — Adapting LRP, Integrated Gradients, and Multi-Task Learning to produce sentence-level explanations for BERT-based multi-label classification of biomedical abstracts.">
+    <meta name="author" content="Konstantinos Giantsios">
+    <meta name="theme-color" content="#0F172A">
+    <meta property="og:title" content="Interpretable Multi-Label Learning — Konstantinos Giantsios">
+    <meta property="og:description" content="LRP, Integrated Gradients, Multi-Task Learning for explainable multi-label BERT classification. M.Sc. thesis on biomedical text interpretability.">
+    <meta property="og:image" content="assets/images/interpretable-ai-overview.png">
+    <meta property="og:type" content="website">
+
+    <title>Interpretable Multi-Label Learning — Konstantinos Giantsios</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <style>
+        .page-hero {
+            position: relative; overflow: hidden;
+            padding: calc(var(--nav-height) + 3.5rem) 1.5rem 4rem;
+            text-align: center;
+            background: var(--bg);
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: 
+                radial-gradient(ellipse 60% 50% at 30% 0%, rgba(129,140,248,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 70% 100%, rgba(56,189,248,0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .page-hero-inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
+
+        .page-hero-icon {
+            width: 56px; height: 56px; border-radius: var(--radius-sm);
+            background: rgba(129,140,248,0.12); color: var(--indigo);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.7rem; margin: 0 auto 1.25rem;
+        }
+
+        .page-hero h1 { margin-bottom: 0.5rem; }
+        .page-hero h1 span { color: var(--indigo); }
+
+        .hero-tagline { font-size: 1.08rem; color: var(--text-secondary); margin-bottom: 1.25rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        .hero-badges {
+            display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;
+            margin-bottom: 1.75rem;
+        }
+
+        .badge {
+            padding: 0.35rem 0.85rem; border-radius: var(--radius-full);
+            font-size: 0.78rem; font-weight: 600; font-family: var(--font-mono);
+            border: 1px solid var(--border);
+            background: var(--bg-card); color: var(--text-secondary);
+        }
+
+        .badge-accent {
+            background: var(--accent-soft); color: var(--accent);
+            border-color: var(--accent-border);
+        }
+
+        .badge-indigo {
+            background: rgba(129,140,248,0.12); color: var(--indigo);
+            border-color: rgba(129,140,248,0.3);
+        }
+
+        .hero-buttons {
+            display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-outline {
+            background: transparent; color: var(--text-secondary);
+            border-color: var(--border);
+        }
+        .btn-outline:hover { border-color: var(--accent-border); color: var(--accent); background: var(--accent-soft); }
+
+        .hero-poster {
+            max-width: 720px; width: 100%; height: auto; margin: 0 auto;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+            display: block;
+        }
+
+        .section-header { text-align: center; margin-bottom: 2.5rem; }
+        .section-header h2 { margin-bottom: 0.5rem; }
+        .section-header p { color: var(--text-muted); font-size: 1rem; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem; max-width: 800px; margin: 0 auto;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem 1.25rem; text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: transform .3s var(--ease-spring), box-shadow .3s var(--ease);
+        }
+
+        .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+        .stat-value {
+            font-size: 1.7rem; font-weight: 800; color: var(--indigo);
+            font-family: var(--font-mono); letter-spacing: -0.03em;
+            margin-bottom: 0.35rem;
+        }
+
+        .stat-label { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
+
+        .info-card {
+            max-width: 780px; margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem 2.25rem;
+            box-shadow: var(--shadow-sm);
+            transition: transform .3s var(--ease-spring), box-shadow .3s var(--ease);
+        }
+
+        .info-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+        .info-card p { font-size: 1rem; line-height: 1.7; }
+
+        .info-card p + p { margin-top: 0.75rem; }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            max-width: 900px; margin: 0 auto;
+        }
+
+        .method-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-sm);
+            transition: transform .3s var(--ease-spring), box-shadow .3s var(--ease), border-color .3s var(--ease);
+        }
+
+        .method-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--accent-border); }
+
+        .method-icon {
+            width: 44px; height: 44px; border-radius: var(--radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem; margin-bottom: 1rem;
+        }
+
+        .method-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
+        .method-card p { font-size: 0.88rem; line-height: 1.6; margin-bottom: 0.75rem; }
+        .method-card .method-detail { font-size: 0.82rem; color: var(--text-muted); font-family: var(--font-mono); line-height: 1.7; }
+
+        .results-highlight {
+            max-width: 780px; margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid rgba(129,140,248,0.35);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg), 0 0 40px rgba(129,140,248,0.12);
+            transition: transform .3s var(--ease-spring);
+        }
+
+        .results-highlight:hover { transform: translateY(-4px); }
+
+        .results-mega {
+            font-size: clamp(3rem, 7vw, 4.5rem); font-weight: 800;
+            color: var(--indigo); font-family: var(--font-mono);
+            letter-spacing: -0.04em; line-height: 1; margin-bottom: 0.5rem;
+        }
+
+        .results-subtitle { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+
+        .results-detail {
+            display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;
+            padding-top: 1.25rem; border-top: 1px solid var(--border);
+        }
+
+        .results-stat { text-align: center; }
+        .results-stat .val { font-size: 1.4rem; font-weight: 700; color: var(--green); font-family: var(--font-mono); }
+        .results-stat .lbl { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.15rem; }
+
+        .dataset-row {
+            display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;
+            max-width: 780px; margin: 0 auto;
+        }
+
+        .dataset-card {
+            flex: 1; min-width: 240px; max-width: 360px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem; text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: transform .3s var(--ease-spring), box-shadow .3s var(--ease);
+        }
+
+        .dataset-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+        .dataset-card h4 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--text); text-transform: none; letter-spacing: 0; }
+        .dataset-card .ds-stat { font-size: 1.5rem; font-weight: 800; color: var(--indigo); font-family: var(--font-mono); margin-bottom: 0.25rem; }
+        .dataset-card .ds-label { font-size: 0.82rem; color: var(--text-muted); }
+
+        .perf-table {
+            max-width: 780px; margin: 0 auto;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .perf-table table {
+            width: 100%; border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .perf-table th {
+            background: var(--bg-alt);
+            padding: 0.85rem 1rem;
+            text-align: left; font-weight: 600;
+            font-size: 0.82rem; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .perf-table td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+        }
+
+        .perf-table tr:last-child td { border-bottom: none; }
+
+        .perf-table .perf-val {
+            font-family: var(--font-mono); font-weight: 600;
+            color: var(--text);
+        }
+
+        .perf-best {
+            color: var(--green) !important;
+        }
+
+        .ref-list { max-width: 780px; margin: 0 auto; }
+
+        .ref-item {
+            display: flex; gap: 0.75rem; align-items: flex-start;
+            padding: 0.85rem 0; border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.9rem; color: var(--text-secondary); line-height: 1.55;
+        }
+
+        .ref-item:last-child { border-bottom: none; }
+        .ref-idx { color: var(--indigo); font-weight: 700; font-family: var(--font-mono); font-size: 0.82rem; min-width: 1.5rem; flex-shrink: 0; }
+
+        .footer-row { display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; }
+
+        a.footer-home {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.88rem; font-weight: 600; color: var(--text-secondary);
+            padding: 0.45rem 1rem; border: 1px solid var(--border);
+            border-radius: var(--radius-full); transition: all .2s ease;
+        }
+
+        a.footer-home:hover { border-color: var(--accent-border); color: var(--accent); background: var(--accent-soft); }
+
+        .section-divider { border: none; border-top: 1px solid var(--border-subtle); margin: 0; }
+
+        @media (max-width: 768px) {
+            .page-hero { padding: calc(var(--nav-height) + 2rem) 1rem 2.5rem; }
+            .info-card { padding: 1.5rem; }
+            .results-highlight { padding: 1.75rem; }
+            .method-grid { grid-template-columns: 1fr; }
+            .hero-poster { width: 100%; height: auto; }
+            .dataset-row { flex-direction: column; align-items: center; }
+            .dataset-card { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="../../index.html" class="nav-logo">
+                <img src="../../assets/logo.svg" alt="Turtle Terminal Logo">
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="../../index.html#about" class="nav-link">About</a>
+                <a href="../../index.html#experience" class="nav-link">Experience</a>
+                <div class="nav-dropdown">
+                    <a href="../../index.html#projects" class="nav-link">Projects</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="../../projects/interpretable-multi-label-learning/" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon" style="background:rgba(129,140,248,0.12);">&#127942;</span>
+                            Interpretable Multi-Label Learning
+                        </a>
+                        <a href="../../projects/toxic-comment-detection/" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon" style="background:rgba(56,189,248,0.12);">&#9889;</span>
+                            Toxic Comment Detection
+                        </a>
+                        <a href="https://github.com/CoGian/keyword-extraction-with-greekBERT" class="nav-dropdown-item" target="_blank" rel="noopener">
+                            <span class="nav-dropdown-icon" style="background:rgba(244,114,182,0.12);">&#128640;</span>
+                            GreekBERT Keyword Extraction
+                        </a>
+                        <a href="../../mininio/" class="nav-dropdown-item">
+                            <span class="nav-dropdown-icon" style="background:rgba(52,211,153,0.12);">&#128241;</span>
+                            Mininio: Carb & Insulin Calc
+                        </a>
+                    </div>
+                </div>
+                <a href="../../index.html#skills" class="nav-link">Skills</a>
+                <a href="../../index.html#cv" class="nav-link">CV</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <header class="page-hero">
+        <div class="page-hero-inner">
+            <div class="page-hero-icon">&#127942;</div>
+            <h1>Interpretable Multi-Label <span>Learning</span></h1>
+            <p class="hero-tagline">Proposing interpretability techniques for BERT-based multi-label classification of biomedical texts — <strong>M.Sc. Thesis</strong> (Grade: 9.5/10.0)</p>
+            <div class="hero-badges">
+                <span class="badge">Python</span>
+                <span class="badge">PyTorch</span>
+                <span class="badge">BERT</span>
+                <span class="badge">XAI</span>
+                <span class="badge badge-indigo">M.Sc. Thesis</span>
+                <span class="badge badge-accent">Biomedical NLP</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="https://github.com/CoGian/Interpretable-Multi-Label-Learning" target="_blank" rel="noopener" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    View on GitHub
+                </a>
+                <a href="https://ikee.lib.auth.gr/record/341020/?ln=en" target="_blank" rel="noopener" class="btn btn-outline">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    M.Sc. Thesis
+                </a>
+                <a href="../../index.html" class="btn btn-outline">&#8592; Back to Portfolio</a>
+            </div>
+            <img src="assets/images/interpretable-ai-overview.png" alt="Interpretable AI in Biomedical Research — Academic Poster Overview" class="hero-poster" loading="lazy">
+        </div>
+    </header>
+
+    <hr class="section-divider">
+
+    <section class="section" id="overview">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Overview</h2>
+                <p>Problem statement and research motivation</p>
+            </div>
+            <div class="info-card fade-in">
+                <p>The biomedical research community publishes a massive volume of unstructured data daily, necessitating automated tools for indexing, topic categorization, and multi-label classification. While deep learning models like <strong>Transformers (BERT, blue-BERT)</strong> achieve state-of-the-art predictive performance, they function as "black boxes" — their deep, complex representations are difficult to interpret.</p>
+                <p>In domains like healthcare and biomedicine, simply providing an automated prediction is rarely enough. Users need to understand <strong>why</strong> a model made a specific decision. This project focused on adapting advanced interpretability algorithms to a multi-label format and transforming their outputs into readable, <strong>sentence-level rationales</strong>.</p>
+            </div>
+
+            <div class="section-header fade-in" style="margin-top:3.5rem;">
+                <h2>Datasets</h2>
+                <p>Two manually annotated biomedical corpora with sentence-level rationale ground truth</p>
+            </div>
+            <div class="dataset-row fade-in">
+                <div class="dataset-card">
+                    <h4>Hallmarks of Cancer (HoC)</h4>
+                    <div class="ds-stat">1,580</div>
+                    <div class="ds-label">Biomedical abstracts</div>
+                    <div class="ds-stat" style="margin-top:0.75rem;">10</div>
+                    <div class="ds-label">Multi-label categories</div>
+                </div>
+                <div class="dataset-card">
+                    <h4>Chemical Exposure (CEI)</h4>
+                    <div class="ds-stat">3,661</div>
+                    <div class="ds-label">Biomedical abstracts</div>
+                    <div class="ds-stat" style="margin-top:0.75rem;">11</div>
+                    <div class="ds-label">Multi-label categories</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="section section-alt" id="methodology">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Methodology</h2>
+                <p>Four interpretability approaches adapted for multi-label text classification</p>
+            </div>
+            <div class="method-grid">
+                <div class="method-card fade-in">
+                    <div class="method-icon" style="background:rgba(56,189,248,0.12);color:var(--accent);">&#916;</div>
+                    <h3>Integrated Gradients (IG)</h3>
+                    <p>Gradient-based attribution method modified to solve saturation issues in deep networks.</p>
+                    <div class="method-detail">
+                        Adapted for <strong>multi-label classification</strong><br>
+                        Isolates prediction vectors per label<br>
+                        Back-propagates relevance to input tokens
+                    </div>
+                </div>
+                <div class="method-card fade-in">
+                    <div class="method-icon" style="background:rgba(129,140,248,0.12);color:var(--indigo);">&#8661;</div>
+                    <h3>Layer-wise Relevance Propagation</h3>
+                    <p>Propagation-based method delivering 20x faster inference than IG.</p>
+                    <div class="method-detail">
+                        Modified to accommodate <strong>Transformer encoder blocks</strong> &amp; <strong>self-attention modules</strong><br>
+                        LRP-POS using positive attributions only
+                    </div>
+                </div>
+                <div class="method-card fade-in">
+                    <div class="method-icon" style="background:rgba(52,211,153,0.12);color:var(--green);">&#9881;</div>
+                    <h3>Multi-Task Learning</h3>
+                    <p>Supervised framework jointly learning label prediction and rationale extraction.</p>
+                    <div class="method-detail">
+                        Trained simultaneously to <strong>predict labels</strong> + <strong>identify rationale sentences</strong><br>
+                        Highest quality explanations overall
+                    </div>
+                </div>
+                <div class="method-card fade-in">
+                    <div class="method-icon" style="background:rgba(244,114,182,0.12);color:var(--pink);">&#9650;</div>
+                    <h3>Attention Weights + Token-to-Sentence</h3>
+                    <p>Leveraging raw attention scores across Transformer layers and aggregating into sentences.</p>
+                    <div class="method-detail">
+                        <strong>Min-Max</strong> &amp; <strong>Max-Abs</strong> scaling<br>
+                        Top absolute values averaged per sentence<br>
+                        Tested across layer combinations
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="section" id="evaluation">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Evaluation Framework</h2>
+                <p>Custom metrics designed for interpretability assessment</p>
+            </div>
+            <div class="info-card fade-in">
+                <p>Standard evaluation metrics fall short for interpretability tasks. This project designed <strong>custom evaluation metrics</strong> to rigorously assess the quality of extracted rationales against human-annotated ground truth.</p>
+            </div>
+            <div class="method-grid fade-in" style="margin-top:1.5rem;">
+                <div class="method-card">
+                    <div class="method-icon" style="background:rgba(56,189,248,0.12);color:var(--accent);">&#127919;</div>
+                    <h3>Sentence-Level F&#8321; Score</h3>
+                    <p>Measures explanation precision and recall by comparing extracted rationale sentences against human-annotated ground truth sentences at the sentence level.</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon" style="background:rgba(129,140,248,0.12);color:var(--indigo);">&#9878;</div>
+                    <h3>Faithfulness Metrics</h3>
+                    <p>Measures the <strong>drop in predictive confidence</strong> when the model's selected "important" sentences (rationales) are removed from the input. Variants:</p>
+                    <div class="method-detail">
+                        <strong>Faithfulness</strong> &middot; <strong>Faithfulness-1</strong> &middot; <strong>Faithfulness-all</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="section section-alt" id="results">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Results</h2>
+                <p>Quantitative performance across methods, models, and datasets</p>
+            </div>
+            <div class="results-highlight fade-in">
+                <div class="results-mega">0.7421</div>
+                <p class="results-subtitle">Sentence-Level F&#8321; Score — Multi-Task Learning (HoC)</p>
+                <div class="results-detail">
+                    <div class="results-stat">
+                        <div class="val">0.7255</div>
+                        <div class="lbl">Multi-Task F&#8321; on CEI dataset</div>
+                    </div>
+                    <div class="results-stat">
+                        <div class="val">0.6728</div>
+                        <div class="lbl">LRP-POS F&#8321; on HoC (best unsupervised)</div>
+                    </div>
+                    <div class="results-stat">
+                        <div class="val">20&times; faster</div>
+                        <div class="lbl">LRP vs. Integrated Gradients</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header fade-in" style="margin-top:3.5rem;">
+                <h2>Performance Summary</h2>
+                <p>Sentence-Level F&#8321; scores across methods and datasets</p>
+            </div>
+            <div class="perf-table fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>HoC (BERT)</th>
+                            <th>HoC (blue-BERT)</th>
+                            <th>CEI (BERT)</th>
+                            <th>CEI (blue-BERT)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Multi-Task Learning</strong></td>
+                            <td class="perf-val perf-best">0.7421</td>
+                            <td class="perf-val">&mdash;</td>
+                            <td class="perf-val perf-best">0.7255</td>
+                            <td class="perf-val">&mdash;</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LRP-POS</strong></td>
+                            <td class="perf-val">0.6728</td>
+                            <td class="perf-val">0.6218</td>
+                            <td class="perf-val">&mdash;</td>
+                            <td class="perf-val">&mdash;</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Integrated Gradients</strong></td>
+                            <td class="perf-val">0.6125</td>
+                            <td class="perf-val">0.6211</td>
+                            <td class="perf-val">&mdash;</td>
+                            <td class="perf-val">&mdash;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-card fade-in" style="margin-top:1.5rem;">
+                <p>The <strong>Multi-Task Learning</strong> approach yielded the highest quality explanations across both datasets. Among fully unsupervised methods, <strong>LRP-POS</strong> utilizing standard BERT achieved the best results. Notably, LRP produced high-quality explanations with an inference time <strong>~20 times faster</strong> than Integrated Gradients (~1 sec vs. ~20 sec per instance).</p>
+                <p>Interestingly, the original general-purpose <strong>BERT</strong> frequently produced more meaningful explanations than the domain-specific <strong>blue-BERT</strong>, as verified by the Faithfulness-1 metric.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="section" id="stack">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Tech Stack</h2>
+                <p>Languages, frameworks, and environment</p>
+            </div>
+            <div class="skill-group fade-in" style="max-width:780px;margin:0 auto 2rem;">
+                <h4>Languages</h4>
+                <div class="skill-tags">
+                    <span>Python</span>
+                </div>
+            </div>
+            <div class="skill-group fade-in" style="max-width:780px;margin:0 auto 2rem;">
+                <h4>Frameworks &amp; Libraries</h4>
+                <div class="skill-tags">
+                    <span>PyTorch</span><span>Hugging Face Transformers</span><span>Captum</span>
+                    <span>scikit-learn</span><span>NumPy</span><span>Pandas</span>
+                    <span>Weights &amp; Biases</span>
+                </div>
+            </div>
+            <div class="skill-group fade-in" style="max-width:780px;margin:0 auto 2rem;">
+                <h4>Models</h4>
+                <div class="skill-tags">
+                    <span>BERT</span><span>blue-BERT</span>
+                </div>
+            </div>
+
+            <div class="section-header fade-in" style="margin-top:3.5rem;">
+                <h2>Key Academic References</h2>
+                <p>Papers used in methodology design</p>
+            </div>
+            <div class="ref-list fade-in">
+                <div class="ref-item"><span class="ref-idx">[1]</span> Devlin, J., et al. (2018). <strong>BERT: Pre-training of deep bidirectional transformers for language understanding.</strong></div>
+                <div class="ref-item"><span class="ref-idx">[2]</span> Peng, Y., Yan, S., &amp; Lu, Z. (2019). <strong>Transfer learning in biomedical natural language processing: An evaluation of BERT and ELMo on ten benchmarking datasets. (blue-BERT)</strong></div>
+                <div class="ref-item"><span class="ref-idx">[3]</span> Sundararajan, M., Taly, A., &amp; Yan, Q. (2017). <strong>Axiomatic attribution for deep networks. (Integrated Gradients)</strong></div>
+                <div class="ref-item"><span class="ref-idx">[4]</span> Bach, S., et al. (2015). <strong>On pixel-wise explanations for non-linear classifier decisions by layer-wise relevance propagation.</strong></div>
+                <div class="ref-item"><span class="ref-idx">[5]</span> Vaswani, A., et al. (2017). <strong>Attention is all you need.</strong></div>
+                <div class="ref-item"><span class="ref-idx">[6]</span> Baker, S., et al. (2016). <strong>Cancer Hallmarks Analytics Tool (CHAT): A text mining approach to organize and evaluate biomedical literature.</strong></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-row">
+                <a href="https://github.com/CoGian/Interpretable-Multi-Label-Learning" target="_blank" rel="noopener" class="footer-home">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="mailto:constantinos.giantsios@gmail.com" class="footer-home">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 4-10 8L2 4"/></svg>
+                    Email
+                </a>
+                <a href="../../index.html" class="footer-home">&#8592; Back to Portfolio</a>
+            </div>
+            <p class="footer-copy" style="margin-top:1.25rem;">&copy; 2026 Konstantinos Giantsios</p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>
