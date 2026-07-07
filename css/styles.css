@@ -84,6 +84,7 @@ h4 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em; color
 
 a { color: var(--accent); text-decoration: none; transition: color .2s ease; }
 @media (hover: hover) { a:hover { color: var(--accent-hover); } }
+a:active { color: var(--accent-hover); }
 
 p { color: var(--text-secondary); font-size: 1.05rem; }
 
@@ -143,6 +144,7 @@ p { color: var(--text-secondary); font-size: 1.05rem; }
 }
 
 @media (hover: hover) { .nav-logo:hover { color: var(--accent); } }
+.nav-logo:active { color: var(--accent); }
 
 .nav-links { display: flex; align-items: center; gap: 0.5rem; }
 
@@ -153,6 +155,7 @@ p { color: var(--text-secondary); font-size: 1.05rem; }
 }
 
 @media (hover: hover) { .nav-link:hover { background: var(--surface); color: var(--text); } }
+.nav-link:active { background: var(--surface); color: var(--text); }
 
 .nav-dropdown { position: relative; }
 
@@ -174,6 +177,7 @@ p { color: var(--text-secondary); font-size: 1.05rem; }
 }
 
 @media (hover: hover) { .nav-dropdown-item:hover { background: var(--surface); color: var(--text); } }
+.nav-dropdown-item:active { background: var(--surface); color: var(--text); }
 
 .nav-dropdown-icon {
     width: 28px; height: 28px; border-radius: 6px;
@@ -291,6 +295,11 @@ p { color: var(--text-secondary); font-size: 1.05rem; }
     transform: translateY(-2px);
 }
 }
+.hero-link:active {
+    color: var(--accent); border-color: var(--accent-border);
+    box-shadow: 0 0 20px var(--accent-soft);
+    transform: translateY(-2px);
+}
 
 @media (prefers-color-scheme: dark) {
     .hero-link { background: rgba(30,41,59,0.6); }
@@ -326,6 +335,10 @@ p { color: var(--text-secondary); font-size: 1.05rem; }
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg), var(--shadow-glow);
 }
+}
+.about-card:active {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
 }
 
 .about-card p { font-size: 1.1rem; line-height: 1.75; }
@@ -369,6 +382,7 @@ p { color: var(--text-secondary); font-size: 1.05rem; }
 }
 
 @media (hover: hover) { .timeline-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg), var(--shadow-glow); } }
+.timeline-card:active { transform: translateY(-4px); box-shadow: var(--shadow-lg), var(--shadow-glow); }
 
 .timeline-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.35rem; }
 
@@ -420,6 +434,7 @@ p { color: var(--text-secondary); font-size: 1.05rem; }
 }
 
 @media (hover: hover) { .edu-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg), var(--shadow-glow); } }
+.edu-card:active { transform: translateY(-4px); box-shadow: var(--shadow-lg), var(--shadow-glow); }
 
 .edu-logo {
     width: 48px; height: 48px; border-radius: 6px;
@@ -469,6 +484,11 @@ p { color: var(--text-secondary); font-size: 1.05rem; }
     border-color: var(--accent-border);
 }
 }
+.project-card:active {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    border-color: var(--accent-border);
+}
 
 .project-icon {
     width: 44px; height: 44px; border-radius: var(--radius-sm);
@@ -493,6 +513,7 @@ img.project-icon {
 .project-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text); }
 .project-card p { font-size: 0.88rem; line-height: 1.55; margin-bottom: 1rem; flex: 1; }
 @media (hover: hover) { .project-card:hover h3 { color: var(--accent); } }
+.project-card:active h3 { color: var(--accent); }
 
 .project-tags {
     display: flex; flex-wrap: wrap; gap: 0.4rem;
@@ -511,6 +532,7 @@ img.project-icon {
 }
 
 @media (hover: hover) { .project-card:hover .project-link { color: var(--accent-hover); } }
+.project-card:active .project-link { color: var(--accent-hover); }
 
 /* ---- Skills ---- */
 .skills-grid { max-width: 800px; margin: 0 auto; }
@@ -534,6 +556,10 @@ img.project-icon {
     border-color: var(--accent-border); color: var(--accent);
     background: var(--accent-soft);
 }
+}
+.skill-tags span:active {
+    border-color: var(--accent-border); color: var(--accent);
+    background: var(--accent-soft);
 }
 
 /* ---- Achievements ---- */
@@ -598,6 +624,7 @@ img.project-icon {
 }
 
 @media (hover: hover) { .btn-primary:hover { box-shadow: 0 6px 28px rgba(56,189,248,0.45); color: #fff; } }
+.btn-primary:active { box-shadow: 0 6px 28px rgba(56,189,248,0.45); }
 
 /* ---- Footer ---- */
 .footer {
@@ -619,6 +646,7 @@ img.project-icon {
 }
 
 @media (hover: hover) { .footer-links a:hover { background: var(--surface); color: var(--accent); border-color: var(--accent-border); } }
+.footer-links a:active { background: var(--surface); color: var(--accent); border-color: var(--accent-border); }
 
 .footer-copy { font-size: 0.82rem; color: var(--text-muted); }
 

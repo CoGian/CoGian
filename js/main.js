@@ -1,6 +1,8 @@
 (function () {
     'use strict';
 
+    document.addEventListener('touchstart', function() {}, { passive: true });
+
     var navToggle = document.getElementById('navToggle');
     var navLinks = document.getElementById('navLinks');
     var navDropdown = document.querySelector('.nav-dropdown');
