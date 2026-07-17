@@ -51,7 +51,7 @@
         <h1>Mininio: Carb & Insulin Calc</h1>
         <p class="tagline">The private, offline carb calculator with custom insulin ratio math. Your data, your device, your numbers.</p>
         <div class="hero-badges">
-            <span class="badge badge-version">v0.17.3</span>
+            <span class="badge badge-version">v0.18.0</span>
             <span class="badge badge-platform">Android</span>
             <span class="badge badge-platform">10 Languages</span>
             <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener" class="badge badge-platform" style="background:rgba(247,224,138,0.15);border-color:rgba(247,224,138,0.25);color:var(--naples-yellow);">CC BY-NC-SA 4.0</a>
@@ -185,6 +185,21 @@
             </div>
             <div class="changelog" id="changelogContainer">
                 <div class="changelog-entry">
+<div class="changelog-version"><h3>v0.18.0</h3><span class="changelog-date">17 Jul 2026</span></div>
+<ul class="changelog-changes">
+<li>Feature: Food quantity units (g/ml/pcs/cup/tbsp/slice) are now fully preserved end-to-end — from CSV import through DB storage, nutrition table, food selection, tally display, history, and copy-all text, localized across all 10 languages.</li>
+<li>Feature: New `UnitNormalizer` utility maps 10 languages' unit terms to standard codes on CSV import.</li>
+<li>Feature: Nutrition Table editing dialog now includes unit dropdown selectors for both measurement modes.</li>
+<li>Feature: Plural-aware unit display for slice(s) and cup(s) in 7 inflected languages using parenthetical/slash notation.</li>
+<li>DB: Added `gram_ml_unit TEXT` and `count_unit TEXT` columns to the `food_items` table with schema migration (1.sqm).</li>
+<li>Refactor: Tally entries and history now store and display unit codes instead of hardcoded strings, enabling correct localized display across all locales.</li>
+<li>Refactor: `NumberParser.extractFloat()` rewritten with two-pass regex for robust decimal/fraction/unit parsing.</li>
+<li>Refactor: Centralized `unitLabelMap` in ComputationScreen using `UnitNormalizer.ALL_UNIT_CODES` — single source of truth.</li>
+<li>Fix: Greek &quot;φέτα&quot; (slice) now correctly normalized to &quot;slice&quot; code on CSV import.</li>
+<li>Test: Added 10 test cases for `extractFloatWithUnit()` covering number+unit, fraction+unit, comma decimals, space-less, and edge cases.</li>
+</ul>
+</div>
+<div class="changelog-entry">
 <div class="changelog-version"><h3>v0.17.3</h3><span class="changelog-date">13 Jul 2026</span></div>
 <ul class="changelog-changes">
 <li>Refactor: Simplified layout code by replacing Spacer weight patterns with Modifier.weight on labels in Calculation, History, and PremiumComponents.</li>
@@ -670,7 +685,7 @@
         <div class="container">
             <div class="section-header fade-in">
                 <h2>Privacy Policy</h2>
-                <p>Last updated: 13 Jul 2026</p>
+                <p>Last updated: 17 Jul 2026</p>
             </div>
             <div class="privacy-content fade-in">
                 <h4>Privacy Policy</h4>
@@ -716,7 +731,7 @@
                 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="footer-link" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
             </div>
             <p class="footer-info">
-                &copy; 2025–2026 Konstantinos Giantsios &mdash; Version <span>0.17.3</span>
+                &copy; 2025–2026 Konstantinos Giantsios &mdash; Version <span>0.18.0</span>
             </p>
         </div>
     </footer>
