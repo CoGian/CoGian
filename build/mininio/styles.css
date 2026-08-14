@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    Mininio: Carb &amp; Insulin Calc - GitHub Pages
    ============================================================ */
 
@@ -151,6 +151,22 @@ img { max-width: 100%; height: auto; display: block; }
 
 @media (hover: hover) { .nav-link:hover { background: var(--surface-variant); color: var(--rhino-teal); border-color: var(--border-subtle); } }
 .nav-link:active { background: var(--surface-variant); color: var(--rhino-teal); border-color: var(--border-subtle); }
+
+.nav-link-playstore {
+    background: var(--naples-yellow);
+    color: var(--rhino-teal) !important;
+    font-weight: 600;
+}
+@media (hover: hover) {
+    .nav-link-playstore:hover {
+        background: #E8C650 !important;
+        color: var(--rhino-teal) !important;
+    }
+}
+.nav-link-playstore:active {
+    background: #E8C650 !important;
+    color: var(--rhino-teal) !important;
+}
 
 @media (prefers-color-scheme: dark) {
     @media (hover: hover) { .nav-link:hover { color: var(--naples-yellow); } }
@@ -483,6 +499,17 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .footer-info { font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem; }
+
+.footer-info a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--border-branded);
+    transition: color .18s ease;
+}
+@media (hover: hover) {
+    .footer-info a:hover { color: var(--on-surface); }
+}
+.footer-info a:active { color: var(--on-surface); }
 
 .footer-info span { color: var(--naples-yellow); }
 
