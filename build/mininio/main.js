@@ -4,6 +4,8 @@
 (function () {
     'use strict';
 
+    document.addEventListener('touchstart', function() {}, { passive: true });
+
     // ---- Mobile Navigation Toggle ----
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
