@@ -52,7 +52,7 @@
         <h1>Mininio: Carb & Insulin Calc</h1>
         <p class="tagline">The private, offline carb calculator with custom insulin ratio math. Your data, your device, your numbers.</p>
         <div class="hero-badges">
-            <span class="badge badge-version">v0.18.2</span>
+            <span class="badge badge-version">v0.19.0</span>
             <span class="badge badge-platform">Android</span>
             <span class="badge badge-platform">10 Languages</span>
             <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener" class="badge badge-platform" style="background:rgba(247,224,138,0.15);border-color:rgba(247,224,138,0.25);color:var(--naples-yellow);">CC BY-NC-SA 4.0</a>
@@ -189,6 +189,14 @@
             </div>
             <div class="changelog" id="changelogContainer">
                 <div class="changelog-entry">
+<div class="changelog-version"><h3>v0.19.0</h3><span class="changelog-date">21 Aug 2026</span></div>
+<ul class="changelog-changes">
+<li>Feature: Food search is now accent-insensitive and case-insensitive across all 10 languages — `γάλα` matches `γαλα`, `café` matches `cafe`, while Devanagari (Hindi) and kana (Japanese) marks are preserved.</li>
+<li>DB: Added `food_normalized` column to the `food_items` table with schema migration (2.sqm) and a one-time backfill of existing rows on first launch after upgrade.</li>
+<li>Test: Added `StringNormalizerTest` and `FoodRepositorySearchTest` covering accent folding and SQL LIKE wildcard escaping.</li>
+</ul>
+</div>
+<div class="changelog-entry">
 <div class="changelog-version"><h3>v0.18.2</h3><span class="changelog-date">18 Aug 2026</span></div>
 <ul class="changelog-changes">
 <li>Maintenance: Updated core dependencies to latest stable versions:</li>
@@ -707,7 +715,7 @@
         <div class="container">
             <div class="section-header fade-in">
                 <h2>Privacy Policy</h2>
-                <p>Last updated: 18 Aug 2026</p>
+                <p>Last updated: 21 Aug 2026</p>
             </div>
             <div class="privacy-content fade-in">
                 <h4>Privacy Policy</h4>
@@ -753,7 +761,7 @@
                 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="footer-link" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
             </div>
             <p class="footer-info">
-                &copy; 2025–2026 <a href="https://cogian.github.io/CoGian/" target="_blank" rel="noopener">Konstantinos Giantsios</a> &mdash; Version <span>0.18.2</span>
+                &copy; 2025–2026 <a href="https://cogian.github.io/CoGian/" target="_blank" rel="noopener">Konstantinos Giantsios</a> &mdash; Version <span>0.19.0</span>
             </p>
         </div>
     </footer>
