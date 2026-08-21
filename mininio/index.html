@@ -52,7 +52,7 @@
         <h1>Mininio: Carb & Insulin Calc</h1>
         <p class="tagline">The private, offline carb calculator with custom insulin ratio math. Your data, your device, your numbers.</p>
         <div class="hero-badges">
-            <span class="badge badge-version">v0.19.0</span>
+            <span class="badge badge-version">v0.19.1</span>
             <span class="badge badge-platform">Android</span>
             <span class="badge badge-platform">10 Languages</span>
             <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener" class="badge badge-platform" style="background:rgba(247,224,138,0.15);border-color:rgba(247,224,138,0.25);color:var(--naples-yellow);">CC BY-NC-SA 4.0</a>
@@ -189,6 +189,15 @@
             </div>
             <div class="changelog" id="changelogContainer">
                 <div class="changelog-entry">
+<div class="changelog-version"><h3>v0.19.1</h3><span class="changelog-date">21 Aug 2026</span></div>
+<ul class="changelog-changes">
+<li>Fix: Replaced `enableEdgeToEdge()` with `WindowCompat.setDecorFitsSystemWindows` + manual system-bar icon contrast to clear the Play Console &quot;deprecated APIs for edge-to-edge&quot; finding (`setStatusBarColor`/`setNavigationBarColor` no longer referenced in the release dex).</li>
+<li>Fix: System bar icons now follow the app's selected theme mode (LIGHT/DARK/SYSTEM) instead of only the system theme.</li>
+<li>Fix: Screen is locked to portrait orientation — rotating the device no longer rotates the UI.</li>
+<li>Build: Enabled R8 resource shrinking for release builds (smaller APK, better performance).</li>
+</ul>
+</div>
+<div class="changelog-entry">
 <div class="changelog-version"><h3>v0.19.0</h3><span class="changelog-date">21 Aug 2026</span></div>
 <ul class="changelog-changes">
 <li>Feature: Food search is now accent-insensitive and case-insensitive across all 10 languages — `γάλα` matches `γαλα`, `café` matches `cafe`, while Devanagari (Hindi) and kana (Japanese) marks are preserved.</li>
@@ -761,7 +770,7 @@
                 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="footer-link" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
             </div>
             <p class="footer-info">
-                &copy; 2025–2026 <a href="https://cogian.github.io/CoGian/" target="_blank" rel="noopener">Konstantinos Giantsios</a> &mdash; Version <span>0.19.0</span>
+                &copy; 2025–2026 <a href="https://cogian.github.io/CoGian/" target="_blank" rel="noopener">Konstantinos Giantsios</a> &mdash; Version <span>0.19.1</span>
             </p>
         </div>
     </footer>
