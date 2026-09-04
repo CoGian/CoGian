@@ -52,7 +52,7 @@
         <h1>Mininio: Carb & Insulin Calc</h1>
         <p class="tagline">The private, offline carb calculator with custom insulin ratio math. Your data, your device, your numbers.</p>
         <div class="hero-badges">
-            <span class="badge badge-version">v0.19.5</span>
+            <span class="badge badge-version">v0.19.6</span>
             <span class="badge badge-platform">Android</span>
             <span class="badge badge-platform">10 Languages</span>
             <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener" class="badge badge-platform" style="background:rgba(247,224,138,0.15);border-color:rgba(247,224,138,0.25);color:var(--naples-yellow);">CC BY-NC-SA 4.0</a>
@@ -189,6 +189,15 @@
             </div>
             <div class="changelog" id="changelogContainer">
                 <div class="changelog-entry">
+<div class="changelog-version"><h3>v0.19.6</h3><span class="changelog-date">4 Sep 2026</span></div>
+<ul class="changelog-changes">
+<li>UI: Field validation is now inline — invalid fields shake with a red outline and helper text, and the message appears in a Snackbar instead of a blocking dialog. Dialogs are kept for destructive/important confirmations (delete, overwrite, meal mismatch, day limit).</li>
+<li>UI: Stronger hero type scale on system font — KPI tiles, days-tracked count, and interim carb result use larger ExtraBold styles for clearer hierarchy.</li>
+<li>Fix: Inline error triggers are one-shot — switching tabs or rotating no longer replays the shake or Snackbar, and rapid successive errors can't drop messages.</li>
+<li>Test: Added `DietViewModelTest` cases for inline error clearing and trigger consumption.</li>
+</ul>
+</div>
+<div class="changelog-entry">
 <div class="changelog-version"><h3>v0.19.5</h3><span class="changelog-date">4 Sep 2026</span></div>
 <ul class="changelog-changes">
 <li>Fix: Final result card now reliably scrolls into view after tapping Calculate — including the first calculation and re-calculations from a scrolled position.</li>
@@ -811,7 +820,7 @@
                 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="footer-link" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
             </div>
             <p class="footer-info">
-                &copy; 2025–2026 <a href="https://cogian.github.io/CoGian/" target="_blank" rel="noopener">Konstantinos Giantsios</a> &mdash; Version <span>0.19.5</span>
+                &copy; 2025–2026 <a href="https://cogian.github.io/CoGian/" target="_blank" rel="noopener">Konstantinos Giantsios</a> &mdash; Version <span>0.19.6</span>
             </p>
         </div>
     </footer>
