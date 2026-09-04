@@ -52,7 +52,7 @@
         <h1>Mininio: Carb & Insulin Calc</h1>
         <p class="tagline">The private, offline carb calculator with custom insulin ratio math. Your data, your device, your numbers.</p>
         <div class="hero-badges">
-            <span class="badge badge-version">v0.19.7</span>
+            <span class="badge badge-version">v0.19.10</span>
             <span class="badge badge-platform">Android</span>
             <span class="badge badge-platform">10 Languages</span>
             <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener" class="badge badge-platform" style="background:rgba(247,224,138,0.15);border-color:rgba(247,224,138,0.25);color:var(--naples-yellow);">CC BY-NC-SA 4.0</a>
@@ -189,6 +189,37 @@
             </div>
             <div class="changelog" id="changelogContainer">
                 <div class="changelog-entry">
+<div class="changelog-version"><h3>v0.19.10</h3><span class="changelog-date">5 Sep 2026</span></div>
+<ul class="changelog-changes">
+<li>UI: Integrated non-selectable unit chip (`QuantityUnitChip`) into the trailing icon position of the quantity input field in the Calculation tab, providing immediate unit context as amounts are typed.</li>
+<li>UI: Engineered resilient dynamic field width handling in Calculation tab — cleanly transitions between full-card width and narrowed column beside live carbs result without crowding typed numbers.</li>
+<li>UI: Added 12dp end breathing room, focus transfer, keyboard reopening on tap, and TalkBack semantics clearance for the unit chip.</li>
+<li>Fix: Normalized saved tally quantities according to active locale (`10,7` entered in English saves as `10.7`), while dynamically preserving up to 3 decimal digits of precision for fractional amounts (e.g. `0.125`).</li>
+<li>Fix: Restored JVM default locale synchronization when switching to &quot;System default&quot; language via system configuration lookup.</li>
+<li>Perf: Eliminated redundant synchronous DataStore read on app cold launch in `MininioApp`.</li>
+<li>Test: Added unit tests verifying comma-to-dot decimal formatting across locales and 3-decimal precision retention in `DietViewModelTest`.</li>
+</ul>
+</div>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.19.9</h3><span class="changelog-date">5 Sep 2026</span></div>
+<ul class="changelog-changes">
+<li>UI: Redesigned Nutrition Table Add/Edit Food dialog with integrated trailing unit chips (`UnitSelectorTrailing`), embedding the measurement unit picker directly into the trailing position of each quantity input field.</li>
+<li>UI: Eliminated label wrapping and unit text truncation across all 10 supported languages by retaining full-width field inputs and constraining labels to single-line ellipsis.</li>
+<li>UI: Themed unit selector chips with branded `Neptune` / `NeptuneDark` borders and styling, ensuring WCAG contrast and accessibility compliance in both light and dark themes.</li>
+<li>L10n: Added localized `label_unit` string across all 10 languages for the unit selection controls.</li>
+</ul>
+</div>
+<div class="changelog-entry">
+<div class="changelog-version"><h3>v0.19.8</h3><span class="changelog-date">5 Sep 2026</span></div>
+<ul class="changelog-changes">
+<li>UI: Nutrition Table redesigned with frameless edge-to-edge layout — `NutritionHeroWash` bleeds behind the dynamic header with frameless disclaimer, search field, and import/export buttons, flowing seamlessly into the item list.</li>
+<li>UI: Food items transformed from isolated cards to clean edge-to-edge rows with full-width ripple feedback, prominent Neptune carbs badge, and inset hairline dividers, doubling visible information density.</li>
+<li>UI: Loading state upgraded to authentic multi-element row skeleton shimmers (title, chip, badge, and divider).</li>
+<li>Perf: Preserved 100% list virtualization in `LazyColumn` (`items(filteredFoods, key = id)`), ensuring smooth 120fps scrolling and instantaneous search filtering.</li>
+<li>Refactor: Cleaned up unused imports in `NutritionTableScreen.kt`.</li>
+</ul>
+</div>
+<div class="changelog-entry">
 <div class="changelog-version"><h3>v0.19.7</h3><span class="changelog-date">4 Sep 2026</span></div>
 <ul class="changelog-changes">
 <li>UI: History tab redesigned with frameless edge-to-edge layout — calendar floats directly on the hero wash with entries in an overlapping sheet, matching the Home and Calculation tabs.</li>
@@ -782,7 +813,7 @@
         <div class="container">
             <div class="section-header fade-in">
                 <h2>Privacy Policy</h2>
-                <p>Last updated: 4 Sep 2026</p>
+                <p>Last updated: 5 Sep 2026</p>
             </div>
             <div class="privacy-content fade-in">
                 <h4>Privacy Policy</h4>
@@ -828,7 +859,7 @@
                 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="footer-link" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
             </div>
             <p class="footer-info">
-                &copy; 2025–2026 <a href="https://cogian.github.io/CoGian/" target="_blank" rel="noopener">Konstantinos Giantsios</a> &mdash; Version <span>0.19.7</span>
+                &copy; 2025–2026 <a href="https://cogian.github.io/CoGian/" target="_blank" rel="noopener">Konstantinos Giantsios</a> &mdash; Version <span>0.19.10</span>
             </p>
         </div>
     </footer>
