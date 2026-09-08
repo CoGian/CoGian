@@ -185,6 +185,8 @@ p { color: var(--text-secondary); font-size: 1.05rem; }
     font-size: 0.85rem; flex-shrink: 0;
 }
 
+img.nav-dropdown-icon { object-fit: cover; }
+
 .nav-toggle {
     display: none; background: none; border: none;
     cursor: pointer; width: 40px; height: 40px; padding: 8px;
